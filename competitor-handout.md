@@ -21,6 +21,7 @@ The available template repos:
 - laravel
 - vanilla-js
 - node-ts-prisma
+- nuxt
 
 To log in, you must use the username and password (a 4-digit PIN code) you have been given.
 After logging in, create a new repo for the next task.
