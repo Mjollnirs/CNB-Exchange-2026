@@ -12,7 +12,7 @@ The staff desk application and the passenger portal are built by other teams. Yo
 ## Setup
 
 - Import the provided database dump: `dist/database/reclaim-db.sql` (MySQL). The same dataset is also provided as JSON files in `dist/data/json/` as a failsafe — the SQL dump is the primary source and the assessment dataset is the MySQL database
-- All endpoint paths below are **relative to your API base URL**. The base URL may sit at a domain root or under a sub-path — e.g. `http://localhost:8000/api`, `https://wsXX-YYYY-module-a/api`. Your API must work regardless of where it is mounted; you will enter your base URL in the test suite environment.
+- All endpoint paths below are **relative to your API base URL**. The base URL may sit at a domain root or under a sub-path — e.g. `http://localhost:8000/api`, `https://wsXX-YYYY-module-a.foredu.cn/api`. Your API must work regardless of where it is mounted; you will enter your base URL in the test suite environment.
 - API documentation (Swagger UI) is available in `dist/api-docs/` — open `index.html` in your browser
 - All responses must be JSON — no HTML responses anywhere
 - All staff endpoints require Bearer token authentication (via `POST /login`)
