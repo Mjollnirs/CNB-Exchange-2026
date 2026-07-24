@@ -84,3 +84,21 @@ datasource db {
 Use the same username (`wsXX`) and PIN (`YYYY`) as for your normal database connection. Only the database name at the end should differ from `DATABASE_URL` when you reuse `module-b` as the shadow DB.
 
 **Note:** `prisma migrate deploy` (used in production-style deploys) does not need a shadow database. This configuration is only required if you run `prisma migrate dev` locally during the competition.
+
+## Fix Laravel mixed HTTP/HTTPS issue
+
+In a Laravel production deployment, CSS and other assets may be linked with `http` by default. That conflicts with the site's `https` base URL and can cause mixed-content errors in the browser.
+
+To enforce HTTPS for all generated URLs, add the following to `AppServiceProvider`:
+
+```php
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\URL;
+
+public function boot(): void
+{
+    if (App::isProduction()) {
+        URL::forceHttps();
+    }
+}
+```
