@@ -1,0 +1,30 @@
+meta {
+  name: dispose-old-item
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{baseUrl}}/items/1/status
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  { "status": "disposed" }
+}
+
+tests {
+  test("A4.2: in-storage → donated / disposed allowed only when found_on is more than 60 days ago (disposed after 60 days)", function() {
+    expect(res.status).to.equal(200);
+    expect(res.body.data.status).to.equal("disposed");
+  });
+}

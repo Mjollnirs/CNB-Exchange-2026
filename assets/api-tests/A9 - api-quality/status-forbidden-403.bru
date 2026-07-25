@@ -1,0 +1,21 @@
+meta {
+  name: status-forbidden-403
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/terminals/2
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{agentToken}}
+}
+
+tests {
+  test("A9.3: Exact HTTP status codes as specified throughout (200, 201, 401, 403, 404, 422) — framework defaults overridden where they differ (not-allowed is 403, not 401)", function() {
+    expect(res.status).to.equal(403);
+  });
+}

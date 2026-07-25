@@ -1,0 +1,30 @@
+meta {
+  name: pickup
+  type: http
+  seq: 6
+}
+
+patch {
+  url: {{baseUrl}}/claims/18/status
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  { "status": "under-review" }
+}
+
+tests {
+  test("A5.4: PATCH /claims/{id}/status: submitted → under-review works (claim pick-up)", function() {
+    expect(res.status).to.equal(200);
+    expect(res.body.data.status).to.equal("under-review");
+  });
+}

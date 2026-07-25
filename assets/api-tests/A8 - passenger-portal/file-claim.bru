@@ -1,0 +1,71 @@
+meta {
+  name: file-claim
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{baseUrl}}/passenger/claims
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{passengerToken}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "terminal_id": 2,
+    "category": "electronics",
+    "brand": "Samsung",
+    "colour": "white",
+    "description": "White Samsung phone in transparent case",
+    "lost_on": "2026-07-03",
+    "flight_number": "CA912"
+  }
+}
+
+script:post-response {
+  if (res.status === 201) {
+    bru.setEnvVar("newClaimId", res.body.data.id);
+    bru.setEnvVar("newClaimRef", res.body.data.reference_code);
+
+    const { execFileSync } = require("child_process");
+    const mysqlBin = bru.getEnvVar("mysqlPath") || "mysql";
+    const pass = bru.getEnvVar("dbPass") || "";
+    const args = [
+      "-h", bru.getEnvVar("dbHost") || "127.0.0.1",
+      "-P", String(bru.getEnvVar("dbPort") || 3306),
+      "-u", bru.getEnvVar("dbUser"),
+    ];
+    if (pass !== "") args.push(`-p${pass}`);
+    const db = bru.getEnvVar("dbName");
+
+    try {
+      const count = execFileSync(mysqlBin, [...args, "-N", "-e",
+        `SELECT COUNT(*) FROM ${db}.activity_logs al JOIN ${db}.claims c ON al.claim_id = c.id WHERE c.id = ${res.body.data.id} AND al.user_id IS NULL`])
+        .toString().trim();
+      bru.setVar("noUserLogCount", count);
+    } catch (e) {
+      bru.setVar("noUserLogCount", "QUERY FAILED: " + e.message.split("\n")[0]);
+    }
+  }
+}
+
+tests {
+  test("A8.6: POST /passenger/claims returns 201 with auto CL-XXXXXXXX code and status submitted; validation 422; activity log written with no user (201 + code + submitted)", function() {
+    expect(res.status).to.equal(201);
+    expect(res.body.data.reference_code).to.match(/^CL-[A-Z0-9]{8}$/);
+    expect(res.body.data.status).to.equal("submitted");
+    expect(res.body.data.matched_item).to.equal(null);
+  });
+
+  test("A8.6: POST /passenger/claims returns 201 with auto CL-XXXXXXXX code and status submitted; validation 422; activity log written with no user (log with no user)", function() {
+    expect(bru.getVar("noUserLogCount"), "no activity log row with NULL user for the filed claim").to.equal("1");
+  });
+}

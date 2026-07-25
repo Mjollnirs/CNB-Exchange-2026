@@ -1,0 +1,22 @@
+[
+    {
+        "user_id": 3,
+        "terminal_id": 1
+    },
+    {
+        "user_id": 4,
+        "terminal_id": 2
+    },
+    {
+        "user_id": 5,
+        "terminal_id": 2
+    },
+    {
+        "user_id": 3,
+        "terminal_id": 3
+    },
+    {
+        "user_id": 4,
+        "terminal_id": 4
+    }
+]

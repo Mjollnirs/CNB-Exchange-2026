@@ -1,0 +1,28 @@
+meta {
+  name: terminal-items
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/terminals/1/items?status=in-storage
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+tests {
+  test("A2.5: GET /terminals/{id}/items returns that terminal's items (paginated, ?status filter)", function() {
+    expect(res.status).to.equal(200);
+    expect(res.body).to.have.property("meta");
+    expect(res.body.meta.per_page).to.equal(15);
+    expect(res.body.meta.total).to.equal(14);
+    res.body.data.forEach(item => {
+      expect(item.terminal.id).to.equal(1);
+      expect(item.status).to.equal("in-storage");
+    });
+  });
+}

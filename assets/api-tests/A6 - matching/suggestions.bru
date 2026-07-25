@@ -1,0 +1,53 @@
+meta {
+  name: suggestions
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/claims/1/matches
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+script:post-response {
+  if (res.status === 200 && res.body.data.length > 0) {
+    bru.setEnvVar("matchItemId", res.body.data[0].item.id);
+  }
+}
+
+tests {
+  test("A6.1: GET /claims/{id}/matches considers only in-storage items of the claim's category", function() {
+    expect(res.status).to.equal(200);
+    res.body.data.forEach(m => {
+      expect(m.item.status).to.equal("in-storage");
+      expect(m.item.category).to.equal("jewellery");
+    });
+  });
+
+  test("A6.2: Attribute scores computed exactly: brand match 30, colour match 25 (both case-insensitive), same terminal 20", function() {
+    const top = res.body.data[0];
+    expect(top.breakdown.brand).to.equal(30);
+    expect(top.breakdown.colour).to.equal(25);
+    expect(top.breakdown.terminal).to.equal(20);
+  });
+
+  test("A6.3: Date proximity tiers scored exactly: 0-1 days 25, 2-3 days 15, 4-7 days 5, 8+ days 0", function() {
+    const top = res.body.data[0];
+    expect(top.breakdown.date).to.equal(25);
+    expect(res.body.data.map(m => m.score)).to.eql([100, 70, 50, 45]);
+  });
+
+  test("A6.4: Only items scoring 40+ returned, sorted score desc → found_on desc → id asc, each with score and breakdown", function() {
+    expect(res.body.data).to.be.an("array").with.lengthOf(4);
+    expect(res.body.data.map(m => m.score)).to.eql([100, 70, 50, 45]);
+    res.body.data.forEach(m => {
+      expect(m.score).to.be.at.least(40);
+      expect(m).to.have.property("breakdown");
+    });
+  });
+}

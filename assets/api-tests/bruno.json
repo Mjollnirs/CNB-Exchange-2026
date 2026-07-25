@@ -1,0 +1,12 @@
+{
+  "version": "1",
+  "name": "ReClaim API - Module A Tests",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ],
+  "security": {
+    "appMode": "developer"
+  }
+}

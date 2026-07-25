@@ -1,0 +1,46 @@
+meta {
+  name: reset-db
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/claims/track/RESET-STEP
+  body: none
+  auth: none
+}
+
+script:pre-request {
+  const { execFileSync } = require("child_process");
+  const fs = require("fs");
+  const path = require("path");
+
+  let base;
+  try { base = bru.cwd(); } catch (e) { base = process.cwd(); }
+
+  const dump = path.resolve(base, bru.getEnvVar("dumpPath"));
+  const mysqlBin = bru.getEnvVar("mysqlPath") || "mysql";
+  const pass = bru.getEnvVar("dbPass") || "";
+  const args = [
+    "-h", bru.getEnvVar("dbHost") || "127.0.0.1",
+    "-P", String(bru.getEnvVar("dbPort") || 3306),
+    "-u", bru.getEnvVar("dbUser"),
+  ];
+  if (pass !== "") args.push(`-p${pass}`);
+  const db = bru.getEnvVar("dbName");
+
+  try {
+    execFileSync(mysqlBin, [...args, db], { input: fs.readFileSync(dump, "utf8") });
+    const count = execFileSync(mysqlBin, [...args, "-N", "-e", `SELECT COUNT(*) FROM ${db}.claims`])
+      .toString().trim();
+    bru.setVar("resetResult", count);
+  } catch (e) {
+    bru.setVar("resetResult", "IMPORT FAILED: " + e.message.split("\n")[0]);
+  }
+}
+
+tests {
+  test("A: database restored from the provided dump", function() {
+    expect(bru.getVar("resetResult")).to.equal("61");
+  });
+}

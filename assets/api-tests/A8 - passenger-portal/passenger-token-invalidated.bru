@@ -1,0 +1,22 @@
+meta {
+  name: passenger-token-invalidated
+  type: http
+  seq: 20
+}
+
+get {
+  url: {{baseUrl}}/passenger/profile
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{passengerToken}}
+}
+
+tests {
+  test("A1.4: POST /logout invalidates the token and returns 200 — subsequent requests with the old token get 401 (passenger old token rejected)", function() {
+    expect(res.status).to.equal(401);
+    expect(res.body.message).to.equal("Unauthenticated");
+  });
+}

@@ -1,0 +1,23 @@
+meta {
+  name: my-claims-filter
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrl}}/passenger/claims?status=resolved
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{passengerToken}}
+}
+
+tests {
+  test("A8.4: GET /passenger/claims returns only the passenger's own claims, paginated, without the passenger object; ?status filter (?status filter)", function() {
+    expect(res.status).to.equal(200);
+    expect(res.body.meta.total).to.equal(8);
+    res.body.data.forEach(claim => expect(claim.status).to.equal("resolved"));
+  });
+}

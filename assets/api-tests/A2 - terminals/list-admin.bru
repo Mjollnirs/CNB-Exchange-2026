@@ -1,0 +1,34 @@
+meta {
+  name: list-admin
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/terminals
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+tests {
+  test("A2.1: GET /terminals returns all terminals with items_in_storage_count and open_claims_count, no pagination", function() {
+    expect(res.status).to.equal(200);
+    expect(res.body.data).to.be.an("array").with.lengthOf(4);
+    expect(res.body).to.not.have.property("meta");
+    const codes = res.body.data.map(t => t.code);
+    expect(codes).to.include.members(["PVG-T1", "PVG-T2", "PVG-S1", "PVG-S2"]);
+    const t1 = res.body.data.find(t => t.code === "PVG-T1");
+    expect(t1.items_in_storage_count).to.equal(14);
+    expect(t1).to.have.property("description");
+    expect(t1.status).to.equal("open");
+  });
+
+  test("A2.2: open_claims_count counts claims with status submitted or under-review only", function() {
+    const t1 = res.body.data.find(t => t.code === "PVG-T1");
+    expect(t1.open_claims_count).to.equal(9);
+  });
+}

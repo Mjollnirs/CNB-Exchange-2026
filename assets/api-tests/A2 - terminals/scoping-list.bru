@@ -1,0 +1,23 @@
+meta {
+  name: scoping-list
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/terminals
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{agentToken}}
+}
+
+tests {
+  test("A2.6: Agents see only their assigned terminals in the list and get 403 on unassigned terminal detail (list)", function() {
+    expect(res.status).to.equal(200);
+    const codes = res.body.data.map(t => t.code).sort();
+    expect(codes).to.eql(["PVG-S1", "PVG-T1"]);
+  });
+}

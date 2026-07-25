@@ -1,0 +1,26 @@
+meta {
+  name: profile
+  type: http
+  seq: 15
+}
+
+get {
+  url: {{baseUrl}}/passenger/profile
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{passengerToken}}
+}
+
+tests {
+  test("A8.8: Profile GET/PUT include all fields including address; password and api_token are never exposed (GET)", function() {
+    expect(res.status).to.equal(200);
+    const p = res.body.data;
+    expect(p.first_name).to.equal("Li");
+    expect(p).to.include.all.keys("address_1", "address_2", "city", "postcode", "country", "phone");
+    expect(p).to.not.have.property("password");
+    expect(p).to.not.have.property("api_token");
+  });
+}

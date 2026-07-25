@@ -1,0 +1,24 @@
+meta {
+  name: activity-log
+  type: http
+  seq: 12
+}
+
+get {
+  url: {{baseUrl}}/dashboard/activity
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+tests {
+  test("A3.10: Item registration writes an activity log", function() {
+    expect(res.status).to.equal(200);
+    const createdId = parseInt(bru.getEnvVar("createdItemId"));
+    const entry = res.body.data.find(e => e.action === "item_registered" && e.item && e.item.id === createdId);
+    expect(entry, "no item_registered activity entry for the item created in A3.5").to.not.equal(undefined);
+  });
+}

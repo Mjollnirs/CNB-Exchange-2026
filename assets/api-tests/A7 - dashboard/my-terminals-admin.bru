@@ -1,0 +1,22 @@
+meta {
+  name: my-terminals-admin
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/my-terminals
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+tests {
+  test("A7.6: GET /my-terminals returns the agent's terminals with todays_items and open_claims; 403 for admins (403 for admins)", function() {
+    expect(res.status).to.equal(403);
+    expect(res.body.message).to.equal("Forbidden");
+  });
+}

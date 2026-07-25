@@ -1,0 +1,25 @@
+meta {
+  name: relogin-admin
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{baseUrl}}/login
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  { "email": "admin1@reclaim-pvg.cn", "password": "admin123" }
+}
+
+script:post-response {
+  if (res.status === 200) {
+    bru.setEnvVar("adminToken", res.body.data.token);
+  }
+}

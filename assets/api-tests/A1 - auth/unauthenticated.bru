@@ -1,0 +1,18 @@
+meta {
+  name: unauthenticated
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{baseUrl}}/items
+  body: none
+  auth: none
+}
+
+tests {
+  test("A1.5: All protected endpoints return 401 {\"message\": \"Unauthenticated\"} without a valid Bearer token", function() {
+    expect(res.status).to.equal(401);
+    expect(res.body.message).to.equal("Unauthenticated");
+  });
+}

@@ -1,0 +1,29 @@
+meta {
+  name: reject-invalid
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{baseUrl}}/claims/36/reject
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  { "reason": "attempting to reject a resolved claim" }
+}
+
+tests {
+  test("A5.6: POST /claims/{id}/reject rejects open claims (200, optional reason); non-open claims 422 (non-open claim)", function() {
+    expect(res.status).to.equal(422);
+  });
+}

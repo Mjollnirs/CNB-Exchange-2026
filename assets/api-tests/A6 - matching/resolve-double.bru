@@ -1,0 +1,21 @@
+meta {
+  name: resolve-double
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{baseUrl}}/claims/2/resolve
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+tests {
+  test("A6.9: Resolve refused for claims that are not matched (422)", function() {
+    expect(res.status).to.equal(422);
+  });
+}

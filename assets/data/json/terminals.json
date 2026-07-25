@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Terminal 1",
+        "code": "PVG-T1",
+        "description": "International departures and arrivals, gates A-D",
+        "status": "open",
+        "created_at": "2026-07-04 17:21:49",
+        "updated_at": "2026-07-04 17:21:49"
+    },
+    {
+        "id": 2,
+        "name": "Terminal 2",
+        "code": "PVG-T2",
+        "description": "International and domestic, gates E-H",
+        "status": "open",
+        "created_at": "2026-07-04 17:21:49",
+        "updated_at": "2026-07-04 17:21:49"
+    },
+    {
+        "id": 3,
+        "name": "Satellite Hall S1",
+        "code": "PVG-S1",
+        "description": "Satellite concourse linked to Terminal 1, gates G1-G60",
+        "status": "open",
+        "created_at": "2026-07-04 17:21:49",
+        "updated_at": "2026-07-04 17:21:49"
+    },
+    {
+        "id": 4,
+        "name": "Satellite Hall S2",
+        "code": "PVG-S2",
+        "description": "Satellite concourse linked to Terminal 2, gates H1-H42",
+        "status": "open",
+        "created_at": "2026-07-04 17:21:49",
+        "updated_at": "2026-07-04 17:21:49"
+    }
+]

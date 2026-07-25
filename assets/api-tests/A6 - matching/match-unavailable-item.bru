@@ -1,0 +1,29 @@
+meta {
+  name: match-unavailable-item
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{baseUrl}}/claims/10/match
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  { "item_id": 73 }
+}
+
+tests {
+  test("A6.6: POST /claims/{id}/match links claim and item (both matched); requires claim under-review and item in-storage (422 otherwise) (item not in-storage)", function() {
+    expect(res.status).to.equal(422);
+  });
+}

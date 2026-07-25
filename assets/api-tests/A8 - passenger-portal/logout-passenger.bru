@@ -1,0 +1,22 @@
+meta {
+  name: logout-passenger
+  type: http
+  seq: 19
+}
+
+post {
+  url: {{baseUrl}}/passenger/logout
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{passengerToken}}
+}
+
+tests {
+  test("A1.4: POST /logout invalidates the token and returns 200 — subsequent requests with the old token get 401 (passenger logout)", function() {
+    expect(res.status).to.equal(200);
+    expect(res.body.message).to.equal("Logged out successfully");
+  });
+}

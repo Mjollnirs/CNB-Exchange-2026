@@ -1,0 +1,22 @@
+meta {
+  name: token-separation
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{baseUrl}}/items
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{passengerToken}}
+}
+
+tests {
+  test("A1.6: Staff and passenger tokens are separate systems — each is rejected on the other's endpoints (401 both directions; documented exception: GET /terminals) (passenger token on staff endpoint)", function() {
+    expect(res.status).to.equal(401);
+    expect(res.body.message).to.equal("Unauthenticated");
+  });
+}

@@ -1,0 +1,22 @@
+meta {
+  name: item-now-matched
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/items/{{matchItemId}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+tests {
+  test("A6.6: POST /claims/{id}/match links claim and item (both matched); requires claim under-review and item in-storage (422 otherwise) (item now matched)", function() {
+    expect(res.status).to.equal(200);
+    expect(res.body.data.status).to.equal("matched");
+  });
+}

@@ -1,0 +1,1139 @@
+openapi: 3.0.3
+info:
+  title: ReClaim API
+  version: 1.0.0
+  description: |
+    Lost property service for Shanghai Pudong International Airport (PVG).
+
+    Two separate authentication systems:
+    - **Staff** (admins and agents) — `POST /login`, Bearer token
+    - **Passengers** — `POST /passenger/register` / `POST /passenger/login`, separate Bearer token
+
+    Staff tokens are rejected on `/passenger/*` endpoints and vice versa.
+    Agents see only data for their assigned terminals; admins see everything.
+
+    All responses are JSON. Successful responses use the `{"data": ...}` envelope;
+    paginated lists add `links` and `meta` (15 items per page). Response status codes
+    are exact — framework defaults that differ must be overridden.
+servers:
+  - url: https://DOMAIN/api
+    description: Competition environment (replace DOMAIN with your assigned base URL)
+  - url: http://localhost:8000/api
+    description: Local development
+tags:
+  - name: Auth
+    description: Staff authentication
+  - name: Terminals
+  - name: Found Items
+  - name: Claims
+  - name: Matching & Resolution
+  - name: Dashboard
+  - name: Passenger Portal
+    description: Separate passenger authentication — passengers access only their own data
+  - name: Public
+    description: No authentication required
+
+paths:
+  /login:
+    post:
+      tags: [Auth]
+      summary: Staff login
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email: { type: string, example: admin1@reclaim-pvg.cn }
+                password: { type: string, example: admin123 }
+      responses:
+        '200':
+          description: Authenticated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      token: { type: string, example: kJH8s2LqX9... }
+                      user: { $ref: '#/components/schemas/StaffUser' }
+        '401':
+          description: Invalid credentials or deactivated account
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Message' }
+              example: { message: Invalid credentials }
+        '422': { $ref: '#/components/responses/ValidationError' }
+
+  /logout:
+    post:
+      tags: [Auth]
+      summary: Staff logout — invalidates the token
+      security: [{ StaffBearer: [] }]
+      responses:
+        '200':
+          description: Logged out
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Message' }
+              example: { message: Logged out successfully }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+
+  /terminals:
+    get:
+      tags: [Terminals]
+      summary: List terminals with counts (no pagination; staff token = agents scoped, passenger token = all terminals)
+      description: Accepts either token system. Agents see only their assigned terminals; admins and passengers receive all terminals. Passenger access exists to feed the claim form's terminal selector.
+      security: [{ StaffBearer: [] }, { PassengerBearer: [] }]
+      responses:
+        '200':
+          description: Terminals
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: { $ref: '#/components/schemas/Terminal' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+
+  /terminals/{id}:
+    get:
+      tags: [Terminals]
+      summary: Single terminal
+      security: [{ StaffBearer: [] }]
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: integer } }
+      responses:
+        '200':
+          description: Terminal
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/Terminal' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  /terminals/{id}/items:
+    get:
+      tags: [Terminals]
+      summary: Found items at a terminal (paginated)
+      security: [{ StaffBearer: [] }]
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: integer } }
+        - { name: status, in: query, schema: { $ref: '#/components/schemas/ItemStatus' } }
+        - { name: page, in: query, schema: { type: integer } }
+      responses:
+        '200': { $ref: '#/components/responses/PaginatedItems' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  /items:
+    get:
+      tags: [Found Items]
+      summary: List found items (paginated, newest first; agents scoped to assigned terminals)
+      security: [{ StaffBearer: [] }]
+      parameters:
+        - { name: status, in: query, schema: { $ref: '#/components/schemas/ItemStatus' } }
+        - { name: category, in: query, schema: { $ref: '#/components/schemas/Category' } }
+        - { name: terminal_id, in: query, schema: { type: integer } }
+        - { name: search, in: query, description: Matches brand or description, schema: { type: string } }
+        - { name: page, in: query, schema: { type: integer } }
+      responses:
+        '200': { $ref: '#/components/responses/PaginatedItems' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+    post:
+      tags: [Found Items]
+      summary: Register a found item (agents only at their assigned terminals)
+      description: Reference code is auto-generated (`FI-XXXXXXXX`); status starts as `registered`. An activity log is auto-created.
+      security: [{ StaffBearer: [] }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ItemInput' }
+      responses:
+        '201':
+          description: Item registered
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/Item' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '422': { $ref: '#/components/responses/ValidationError' }
+
+  /items/{id}:
+    get:
+      tags: [Found Items]
+      summary: Single found item
+      security: [{ StaffBearer: [] }]
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: integer } }
+      responses:
+        '200':
+          description: Item
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/Item' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+    put:
+      tags: [Found Items]
+      summary: Update item details
+      description: Updatable — category, brand, colour, description, found_location, storage_shelf. Status and reference code cannot be changed here.
+      security: [{ StaffBearer: [] }]
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: integer } }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                category: { $ref: '#/components/schemas/Category' }
+                brand: { type: string, nullable: true, maxLength: 50 }
+                colour: { type: string, nullable: true, maxLength: 30 }
+                description: { type: string }
+                found_location: { type: string, maxLength: 100 }
+                storage_shelf: { type: string, nullable: true, maxLength: 20 }
+      responses:
+        '200':
+          description: Updated item
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/Item' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '422': { $ref: '#/components/responses/ValidationError' }
+
+  /items/{id}/status:
+    patch:
+      tags: [Found Items]
+      summary: Change item status
+      description: |
+        Allowed here:
+        - `registered` → `in-storage` (requires `storage_shelf`; may be sent in the same request)
+        - `in-storage` → `donated` | `disposed` (only when `found_on` is more than 60 days ago)
+
+        `matched` and `returned` are managed by the claim workflow (`422` here).
+        Invalid transitions return `422`. Every change writes an activity log.
+      security: [{ StaffBearer: [] }]
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: integer } }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [status]
+              properties:
+                status: { $ref: '#/components/schemas/ItemStatus' }
+                storage_shelf: { type: string, nullable: true, maxLength: 20 }
+      responses:
+        '200':
+          description: Updated item
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/Item' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '422':
+          description: Invalid transition, missing shelf, or retention period not over
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Message' }
+              example: { message: Item is still within the retention period }
+
+  /claims:
+    get:
+      tags: [Claims]
+      summary: List claims (paginated, newest first; agents scoped to assigned terminals)
+      security: [{ StaffBearer: [] }]
+      parameters:
+        - { name: status, in: query, schema: { $ref: '#/components/schemas/ClaimStatus' } }
+        - { name: category, in: query, schema: { $ref: '#/components/schemas/Category' } }
+        - { name: terminal_id, in: query, schema: { type: integer } }
+        - { name: page, in: query, schema: { type: integer } }
+      responses:
+        '200': { $ref: '#/components/responses/PaginatedClaims' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+
+  /claims/{id}:
+    get:
+      tags: [Claims]
+      summary: Single claim
+      security: [{ StaffBearer: [] }]
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: integer } }
+      responses:
+        '200':
+          description: Claim
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/Claim' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  /claims/{id}/status:
+    patch:
+      tags: [Claims]
+      summary: Change claim status
+      description: |
+        Allowed here only:
+        - `submitted` → `under-review` (an agent picks up the claim)
+        - `matched` → `under-review` (releases the match — the linked item returns to `in-storage`)
+
+        All other statuses are managed by dedicated endpoints (`422` here).
+      security: [{ StaffBearer: [] }]
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: integer } }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [status]
+              properties:
+                status: { $ref: '#/components/schemas/ClaimStatus' }
+      responses:
+        '200':
+          description: Updated claim
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/Claim' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '422':
+          description: Invalid transition or status managed elsewhere
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Message' }
+
+  /claims/{id}/matches:
+    get:
+      tags: [Matching & Resolution]
+      summary: Ranked match suggestions for a claim
+      description: |
+        Candidates are items with status `in-storage` and the same category as the claim.
+
+        Score (max 100): brand match 30 · colour match 25 · same terminal 20 ·
+        date proximity |found_on − lost_on| 0–1 days 25 / 2–3 days 15 / 4–7 days 5.
+
+        Only items scoring **40 or more** are returned, sorted by score desc,
+        then found_on desc, then id asc. Claim must be `submitted` or `under-review`.
+      security: [{ StaffBearer: [] }]
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: integer } }
+      responses:
+        '200':
+          description: Suggestions (may be an empty array)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: { $ref: '#/components/schemas/MatchSuggestion' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '422':
+          description: Claim is not open
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Message' }
+
+  /claims/{id}/match:
+    post:
+      tags: [Matching & Resolution]
+      summary: Confirm a match
+      description: Claim must be `under-review`; item must be `in-storage` (it does not need to appear in the suggestions). Sets claim and item to `matched` and links them.
+      security: [{ StaffBearer: [] }]
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: integer } }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [item_id]
+              properties:
+                item_id: { type: integer, example: 12 }
+      responses:
+        '200':
+          description: Updated claim with matched_item
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/Claim' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '422':
+          description: Claim not under review or item not available
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Message' }
+
+  /claims/{id}/resolve:
+    post:
+      tags: [Matching & Resolution]
+      summary: Resolve a matched claim — item handed back
+      description: Claim must be `matched`. Sets claim to `resolved` (auto-sets `resolved_at`) and the item to `returned`.
+      security: [{ StaffBearer: [] }]
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: integer } }
+      responses:
+        '200':
+          description: Updated claim
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/Claim' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '422':
+          description: Claim is not matched
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Message' }
+
+  /claims/{id}/reject:
+    post:
+      tags: [Matching & Resolution]
+      summary: Reject an open claim
+      description: Claim must be `submitted` or `under-review` (a matched claim must be released first).
+      security: [{ StaffBearer: [] }]
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: integer } }
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reason: { type: string, nullable: true, example: No matching item found after 30 days }
+      responses:
+        '200':
+          description: Updated claim
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/Claim' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+        '403': { $ref: '#/components/responses/Forbidden' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '422':
+          description: Claim is not open
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Message' }
+
+  /claims/track/{referenceCode}:
+    get:
+      tags: [Public]
+      summary: Track a claim by reference code (no auth)
+      security: []
+      parameters:
+        - { name: referenceCode, in: path, required: true, schema: { type: string }, example: CL-A7B2C9DE }
+      responses:
+        '200':
+          description: Claim status — no passenger personal data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/ClaimTrack' }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  /dashboard/stats:
+    get:
+      tags: [Dashboard]
+      summary: Aggregated statistics (agents scoped to assigned terminals)
+      security: [{ StaffBearer: [] }]
+      responses:
+        '200':
+          description: Statistics
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/DashboardStats' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+
+  /dashboard/activity:
+    get:
+      tags: [Dashboard]
+      summary: 20 most recent staff activity log entries, newest first
+      description: Staff actions only — every entry has a user. Passenger self-service actions (logged with no user) are not shown.
+      security: [{ StaffBearer: [] }]
+      responses:
+        '200':
+          description: Activity log entries
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: { $ref: '#/components/schemas/ActivityLog' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+
+  /my-terminals:
+    get:
+      tags: [Dashboard]
+      summary: The agent's terminals with today's items and open claims (agents only)
+      security: [{ StaffBearer: [] }]
+      responses:
+        '200':
+          description: Assigned terminals
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: { $ref: '#/components/schemas/MyTerminal' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+        '403':
+          description: Returned for admins
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Message' }
+              example: { message: Forbidden }
+
+  /passenger/register:
+    post:
+      tags: [Passenger Portal]
+      summary: Register a passenger account (no auth) — logs in immediately
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/PassengerRegisterInput' }
+      responses:
+        '201':
+          description: Account created and authenticated
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/PassengerAuth' }
+        '422': { $ref: '#/components/responses/ValidationError' }
+
+  /passenger/login:
+    post:
+      tags: [Passenger Portal]
+      summary: Passenger login
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email: { type: string, example: passenger1@email.com }
+                password: { type: string, example: passenger123 }
+      responses:
+        '200':
+          description: Authenticated
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/PassengerAuth' }
+        '401':
+          description: Invalid credentials or deactivated account
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Message' }
+              example: { message: Invalid credentials }
+        '422': { $ref: '#/components/responses/ValidationError' }
+
+  /passenger/logout:
+    post:
+      tags: [Passenger Portal]
+      summary: Passenger logout — invalidates the token
+      security: [{ PassengerBearer: [] }]
+      responses:
+        '200':
+          description: Logged out
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Message' }
+              example: { message: Logged out successfully }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+
+  /passenger/claims:
+    get:
+      tags: [Passenger Portal]
+      summary: Own claims (paginated, newest first)
+      security: [{ PassengerBearer: [] }]
+      parameters:
+        - { name: status, in: query, schema: { $ref: '#/components/schemas/ClaimStatus' } }
+        - { name: page, in: query, schema: { type: integer } }
+      responses:
+        '200':
+          description: Paginated claims without the passenger object
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: { $ref: '#/components/schemas/PassengerClaim' }
+                  links: { $ref: '#/components/schemas/PaginationLinks' }
+                  meta: { $ref: '#/components/schemas/PaginationMeta' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+    post:
+      tags: [Passenger Portal]
+      summary: File a claim
+      description: Reference code auto-generated (`CL-XXXXXXXX`), status `submitted`. An activity log is auto-created (with no user).
+      security: [{ PassengerBearer: [] }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ClaimInput' }
+      responses:
+        '201':
+          description: Claim filed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/PassengerClaim' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+        '422': { $ref: '#/components/responses/ValidationError' }
+
+  /passenger/claims/{id}:
+    get:
+      tags: [Passenger Portal]
+      summary: Single own claim
+      description: Returns 404 if the claim does not exist or is not owned by the authenticated passenger.
+      security: [{ PassengerBearer: [] }]
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: integer } }
+      responses:
+        '200':
+          description: Claim
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/PassengerClaim' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  /passenger/claims/{id}/withdraw:
+    post:
+      tags: [Passenger Portal]
+      summary: Withdraw an own open claim
+      description: Claim must be `submitted` or `under-review`.
+      security: [{ PassengerBearer: [] }]
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: integer } }
+      responses:
+        '200':
+          description: Updated claim
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/PassengerClaim' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '422':
+          description: Claim is not open
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Message' }
+
+  /passenger/profile:
+    get:
+      tags: [Passenger Portal]
+      summary: Own profile
+      security: [{ PassengerBearer: [] }]
+      responses:
+        '200':
+          description: Profile — never exposes password or api_token
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/Passenger' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+    put:
+      tags: [Passenger Portal]
+      summary: Update own profile
+      description: All fields optional — first_name, last_name, email (unique), phone, address_1, address_2, city, postcode, country, password (min 8 chars).
+      security: [{ PassengerBearer: [] }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name: { type: string, maxLength: 50 }
+                last_name: { type: string, maxLength: 50 }
+                email: { type: string, maxLength: 100 }
+                phone: { type: string, nullable: true, maxLength: 20 }
+                address_1: { type: string, maxLength: 100 }
+                address_2: { type: string, nullable: true, maxLength: 100 }
+                city: { type: string, maxLength: 50 }
+                postcode: { type: string, maxLength: 20 }
+                country: { type: string, maxLength: 50 }
+                password: { type: string, minLength: 8 }
+      responses:
+        '200':
+          description: Updated profile
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { $ref: '#/components/schemas/Passenger' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+        '422': { $ref: '#/components/responses/ValidationError' }
+
+components:
+  securitySchemes:
+    StaffBearer:
+      type: http
+      scheme: bearer
+      description: Token from POST /login
+    PassengerBearer:
+      type: http
+      scheme: bearer
+      description: Token from POST /passenger/login or /passenger/register
+
+  responses:
+    Unauthenticated:
+      description: Missing, invalid, or wrong-type Bearer token
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Message' }
+          example: { message: Unauthenticated }
+    Forbidden:
+      description: Authenticated but not allowed (agent outside assigned terminals, or role restriction)
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Message' }
+          example: { message: Forbidden }
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Message' }
+          example: { message: Resource not found }
+    ValidationError:
+      description: Validation failed
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message: { type: string, example: Validation failed }
+              errors:
+                type: object
+                additionalProperties:
+                  type: array
+                  items: { type: string }
+    PaginatedItems:
+      description: Paginated found items (15 per page)
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items: { $ref: '#/components/schemas/Item' }
+              links: { $ref: '#/components/schemas/PaginationLinks' }
+              meta: { $ref: '#/components/schemas/PaginationMeta' }
+    PaginatedClaims:
+      description: Paginated claims (15 per page)
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items: { $ref: '#/components/schemas/Claim' }
+              links: { $ref: '#/components/schemas/PaginationLinks' }
+              meta: { $ref: '#/components/schemas/PaginationMeta' }
+
+  schemas:
+    Category:
+      type: string
+      enum: [electronics, documents, luggage, clothing, jewellery, keys, other]
+
+    ItemStatus:
+      type: string
+      enum: [registered, in-storage, matched, returned, donated, disposed]
+
+    ClaimStatus:
+      type: string
+      enum: [submitted, under-review, matched, resolved, rejected, withdrawn]
+
+    Message:
+      type: object
+      properties:
+        message: { type: string }
+
+    PaginationLinks:
+      type: object
+      description: Absolute URLs depend on where the API is mounted — do not rely on exact values
+      properties:
+        first: { type: string, nullable: true }
+        last: { type: string, nullable: true }
+        prev: { type: string, nullable: true }
+        next: { type: string, nullable: true }
+
+    PaginationMeta:
+      type: object
+      properties:
+        current_page: { type: integer, example: 1 }
+        last_page: { type: integer, example: 8 }
+        per_page: { type: integer, example: 15 }
+        total: { type: integer, example: 112 }
+      additionalProperties: true
+
+    StaffUser:
+      type: object
+      properties:
+        id: { type: integer, example: 1 }
+        name: { type: string, example: Admin One }
+        email: { type: string, example: admin1@reclaim-pvg.cn }
+        role: { type: string, enum: [admin, agent] }
+
+    TerminalRef:
+      type: object
+      properties:
+        id: { type: integer, example: 1 }
+        name: { type: string, example: Terminal 1 }
+        code: { type: string, example: PVG-T1 }
+
+    Terminal:
+      type: object
+      properties:
+        id: { type: integer, example: 1 }
+        name: { type: string, example: Terminal 1 }
+        code: { type: string, example: PVG-T1 }
+        description: { type: string, nullable: true, example: 'International departures and arrivals, gates A-D' }
+        status: { type: string, enum: [open, closed] }
+        items_in_storage_count: { type: integer, example: 14 }
+        open_claims_count: { type: integer, description: Claims with status submitted or under-review, example: 9 }
+        created_at: { type: string, format: date-time }
+        updated_at: { type: string, format: date-time }
+
+    Item:
+      type: object
+      properties:
+        id: { type: integer, example: 1 }
+        reference_code: { type: string, example: FI-K3M9P2QX }
+        terminal: { $ref: '#/components/schemas/TerminalRef' }
+        category: { $ref: '#/components/schemas/Category' }
+        brand: { type: string, nullable: true, example: Apple }
+        colour: { type: string, nullable: true, example: black }
+        description: { type: string, example: 'iPhone 15 Pro, cracked screen protector' }
+        found_on: { type: string, format: date, example: '2026-07-01' }
+        found_location: { type: string, example: Gate D68 }
+        storage_shelf: { type: string, nullable: true, example: T1-R3-S07 }
+        status: { $ref: '#/components/schemas/ItemStatus' }
+        registered_by:
+          type: object
+          nullable: true
+          properties:
+            id: { type: integer, example: 3 }
+            name: { type: string, example: Agent One }
+        created_at: { type: string, format: date-time }
+        updated_at: { type: string, format: date-time }
+
+    ItemInput:
+      type: object
+      required: [terminal_id, category, description, found_on, found_location]
+      properties:
+        terminal_id: { type: integer, example: 1 }
+        category: { $ref: '#/components/schemas/Category' }
+        brand: { type: string, nullable: true, maxLength: 50 }
+        colour: { type: string, nullable: true, maxLength: 30 }
+        description: { type: string }
+        found_on: { type: string, format: date, description: Must not be in the future }
+        found_location: { type: string, maxLength: 100 }
+
+    MatchedItemRef:
+      type: object
+      nullable: true
+      properties:
+        id: { type: integer, example: 12 }
+        reference_code: { type: string, example: FI-K3M9P2QX }
+        storage_shelf: { type: string, nullable: true, example: T1-R3-S07 }
+
+    Claim:
+      type: object
+      properties:
+        id: { type: integer, example: 1 }
+        reference_code: { type: string, example: CL-A7B2C9DE }
+        passenger:
+          type: object
+          properties:
+            id: { type: integer, example: 1 }
+            first_name: { type: string, example: Li }
+            last_name: { type: string, example: Wei }
+            email: { type: string, example: passenger1@email.com }
+        terminal: { $ref: '#/components/schemas/TerminalRef' }
+        category: { $ref: '#/components/schemas/Category' }
+        brand: { type: string, nullable: true }
+        colour: { type: string, nullable: true }
+        description: { type: string }
+        lost_on: { type: string, format: date, example: '2026-07-01' }
+        flight_number: { type: string, nullable: true, example: MU583 }
+        status: { $ref: '#/components/schemas/ClaimStatus' }
+        matched_item: { $ref: '#/components/schemas/MatchedItemRef' }
+        created_at: { type: string, format: date-time }
+        updated_at: { type: string, format: date-time }
+        resolved_at: { type: string, format: date-time, nullable: true }
+
+    PassengerClaim:
+      type: object
+      description: Claim as seen by its owner — same as Claim but without the passenger object
+      properties:
+        id: { type: integer }
+        reference_code: { type: string, example: CL-A7B2C9DE }
+        terminal: { $ref: '#/components/schemas/TerminalRef' }
+        category: { $ref: '#/components/schemas/Category' }
+        brand: { type: string, nullable: true }
+        colour: { type: string, nullable: true }
+        description: { type: string }
+        lost_on: { type: string, format: date }
+        flight_number: { type: string, nullable: true }
+        status: { $ref: '#/components/schemas/ClaimStatus' }
+        matched_item: { $ref: '#/components/schemas/MatchedItemRef' }
+        created_at: { type: string, format: date-time }
+        updated_at: { type: string, format: date-time }
+        resolved_at: { type: string, format: date-time, nullable: true }
+
+    ClaimInput:
+      type: object
+      required: [terminal_id, category, description, lost_on]
+      properties:
+        terminal_id: { type: integer, example: 1 }
+        category: { $ref: '#/components/schemas/Category' }
+        brand: { type: string, nullable: true, maxLength: 50 }
+        colour: { type: string, nullable: true, maxLength: 30 }
+        description: { type: string }
+        lost_on: { type: string, format: date, description: Must not be in the future }
+        flight_number: { type: string, nullable: true, maxLength: 10 }
+
+    ClaimTrack:
+      type: object
+      properties:
+        reference_code: { type: string, example: CL-A7B2C9DE }
+        status: { $ref: '#/components/schemas/ClaimStatus' }
+        category: { $ref: '#/components/schemas/Category' }
+        terminal:
+          type: object
+          properties:
+            name: { type: string, example: Terminal 1 }
+            code: { type: string, example: PVG-T1 }
+        lost_on: { type: string, format: date }
+        created_at: { type: string, format: date-time }
+        resolved_at: { type: string, format: date-time, nullable: true }
+
+    MatchSuggestion:
+      type: object
+      properties:
+        item: { $ref: '#/components/schemas/Item' }
+        score: { type: integer, example: 100 }
+        breakdown:
+          type: object
+          properties:
+            brand: { type: integer, example: 30 }
+            colour: { type: integer, example: 25 }
+            terminal: { type: integer, example: 20 }
+            date: { type: integer, example: 25 }
+
+    Passenger:
+      type: object
+      properties:
+        id: { type: integer, example: 1 }
+        first_name: { type: string, example: Li }
+        last_name: { type: string, example: Wei }
+        email: { type: string, example: passenger1@email.com }
+        phone: { type: string, nullable: true, example: '+8613800138001' }
+        address_1: { type: string, example: 200 Huaihai Middle Road }
+        address_2: { type: string, nullable: true, example: Apt 12B }
+        city: { type: string, example: Shanghai }
+        postcode: { type: string, example: '200021' }
+        country: { type: string, example: China }
+
+    PassengerRegisterInput:
+      type: object
+      required: [first_name, last_name, email, address_1, city, postcode, country, password]
+      properties:
+        first_name: { type: string, maxLength: 50 }
+        last_name: { type: string, maxLength: 50 }
+        email: { type: string, maxLength: 100, description: Must be unique }
+        phone: { type: string, nullable: true, maxLength: 20 }
+        address_1: { type: string, maxLength: 100 }
+        address_2: { type: string, nullable: true, maxLength: 100 }
+        city: { type: string, maxLength: 50 }
+        postcode: { type: string, maxLength: 20 }
+        country: { type: string, maxLength: 50 }
+        password: { type: string, minLength: 8 }
+
+    PassengerAuth:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            token: { type: string }
+            passenger: { $ref: '#/components/schemas/Passenger' }
+
+    ActivityLog:
+      type: object
+      properties:
+        id: { type: integer, example: 1 }
+        action: { type: string, example: claim_matched }
+        details: { type: string, nullable: true, example: Claim CL-A7B2C9DE matched to item FI-K3M9P2QX }
+        item:
+          type: object
+          nullable: true
+          properties:
+            id: { type: integer }
+            reference_code: { type: string, example: FI-K3M9P2QX }
+        claim:
+          type: object
+          nullable: true
+          properties:
+            id: { type: integer }
+            reference_code: { type: string, example: CL-A7B2C9DE }
+        user:
+          type: object
+          nullable: true
+          properties:
+            id: { type: integer }
+            name: { type: string, example: Agent One }
+            role: { type: string, enum: [admin, agent] }
+        created_at: { type: string, format: date-time }
+
+    DashboardStats:
+      type: object
+      properties:
+        total_items: { type: integer, example: 123 }
+        items_in_storage: { type: integer, example: 67 }
+        total_claims: { type: integer, example: 61 }
+        open_claims: { type: integer, description: submitted + under-review, example: 20 }
+        today_items: { type: integer, example: 7 }
+        today_claims: { type: integer, example: 2 }
+        items_by_category:
+          type: object
+          description: One integer per category — all 7 keys always present
+          additionalProperties: { type: integer }
+        claims_by_status:
+          type: object
+          description: One integer per status — all 6 keys always present
+          additionalProperties: { type: integer }
+        recent_claims:
+          type: array
+          description: 5 most recent claims, newest first
+          items:
+            type: object
+            properties:
+              id: { type: integer }
+              reference_code: { type: string }
+              passenger_name: { type: string, example: Li Wei }
+              category: { $ref: '#/components/schemas/Category' }
+              status: { $ref: '#/components/schemas/ClaimStatus' }
+              date: { type: string, format: date-time }
+
+    MyTerminal:
+      type: object
+      properties:
+        terminal:
+          type: object
+          properties:
+            id: { type: integer }
+            name: { type: string }
+            code: { type: string }
+            description: { type: string, nullable: true }
+            status: { type: string, enum: [open, closed] }
+        todays_items:
+          type: array
+          items:
+            type: object
+            properties:
+              id: { type: integer }
+              reference_code: { type: string }
+              category: { $ref: '#/components/schemas/Category' }
+              description: { type: string }
+              status: { $ref: '#/components/schemas/ItemStatus' }
+              found_location: { type: string }
+        open_claims:
+          type: array
+          items:
+            type: object
+            properties:
+              id: { type: integer }
+              reference_code: { type: string }
+              category: { $ref: '#/components/schemas/Category' }
+              status: { $ref: '#/components/schemas/ClaimStatus' }
+              passenger_name: { type: string, example: Li Wei }

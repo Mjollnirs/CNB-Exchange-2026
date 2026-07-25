@@ -1,0 +1,23 @@
+meta {
+  name: claim-detail
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{baseUrl}}/passenger/claims/1
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{passengerToken}}
+}
+
+tests {
+  test("A8.5: GET /passenger/claims/{id} returns 404 when the claim is not owned by the authenticated passenger (own claim accessible)", function() {
+    expect(res.status).to.equal(200);
+    expect(res.body.data.reference_code).to.match(/^CL-[A-Z0-9]{8}$/);
+    expect(res.body.data).to.not.have.property("passenger");
+  });
+}

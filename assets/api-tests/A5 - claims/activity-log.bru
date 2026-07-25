@@ -1,0 +1,23 @@
+meta {
+  name: activity-log
+  type: http
+  seq: 13
+}
+
+get {
+  url: {{baseUrl}}/dashboard/activity
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+tests {
+  test("A5.8: Claim status changes write activity logs", function() {
+    expect(res.status).to.equal(200);
+    expect(res.body.data.find(e => e.action === "claim_status_changed"), "no log for the claim pick-up").to.not.equal(undefined);
+    expect(res.body.data.find(e => e.action === "claim_rejected"), "no log for the rejected claim").to.not.equal(undefined);
+  });
+}

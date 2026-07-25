@@ -1,0 +1,29 @@
+meta {
+  name: invalid-transition
+  type: http
+  seq: 7
+}
+
+patch {
+  url: {{baseUrl}}/items/73/status
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  { "status": "in-storage" }
+}
+
+tests {
+  test("A4.5: All other invalid item transitions return 422", function() {
+    expect(res.status).to.equal(422);
+  });
+}

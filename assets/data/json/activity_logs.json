@@ -1,0 +1,3746 @@
+[
+    {
+        "id": 1,
+        "found_item_id": 1,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-BC785FCD registered at PVG-S1",
+        "created_at": "2026-04-19 16:21:49"
+    },
+    {
+        "id": 2,
+        "found_item_id": 1,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-04-19 16:51:49"
+    },
+    {
+        "id": 3,
+        "found_item_id": 2,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-3A2B7E45 registered at PVG-S2",
+        "created_at": "2026-04-29 15:21:49"
+    },
+    {
+        "id": 4,
+        "found_item_id": 2,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-04-29 15:51:49"
+    },
+    {
+        "id": 5,
+        "found_item_id": 3,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-F371CF85 registered at PVG-S2",
+        "created_at": "2026-04-19 16:21:49"
+    },
+    {
+        "id": 6,
+        "found_item_id": 3,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-04-19 16:51:49"
+    },
+    {
+        "id": 7,
+        "found_item_id": 4,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-DD6F02DB registered at PVG-S1",
+        "created_at": "2026-04-19 19:21:49"
+    },
+    {
+        "id": 8,
+        "found_item_id": 4,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-04-19 19:51:49"
+    },
+    {
+        "id": 9,
+        "found_item_id": 5,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-23F0B0F2 registered at PVG-S1",
+        "created_at": "2026-04-17 13:21:49"
+    },
+    {
+        "id": 10,
+        "found_item_id": 5,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-04-17 13:51:49"
+    },
+    {
+        "id": 11,
+        "found_item_id": 6,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-D09E7F08 registered at PVG-S2",
+        "created_at": "2026-04-21 21:21:49"
+    },
+    {
+        "id": 12,
+        "found_item_id": 6,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-04-21 21:51:49"
+    },
+    {
+        "id": 13,
+        "found_item_id": 7,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-14E80919 registered at PVG-S2",
+        "created_at": "2026-06-19 20:21:49"
+    },
+    {
+        "id": 14,
+        "found_item_id": 7,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-19 20:51:49"
+    },
+    {
+        "id": 15,
+        "found_item_id": 8,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-9CD52364 registered at PVG-S1",
+        "created_at": "2026-06-28 20:21:49"
+    },
+    {
+        "id": 16,
+        "found_item_id": 8,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-28 20:51:49"
+    },
+    {
+        "id": 17,
+        "found_item_id": 9,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-D7AAA143 registered at PVG-T2",
+        "created_at": "2026-06-23 00:21:49"
+    },
+    {
+        "id": 18,
+        "found_item_id": 9,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-23 00:51:49"
+    },
+    {
+        "id": 19,
+        "found_item_id": 10,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-ED59D050 registered at PVG-T2",
+        "created_at": "2026-06-28 00:21:49"
+    },
+    {
+        "id": 20,
+        "found_item_id": 10,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-28 00:51:49"
+    },
+    {
+        "id": 21,
+        "found_item_id": 11,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-5C8EC9EE registered at PVG-S1",
+        "created_at": "2026-06-25 19:21:49"
+    },
+    {
+        "id": 22,
+        "found_item_id": 11,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-25 19:51:49"
+    },
+    {
+        "id": 23,
+        "found_item_id": 12,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-7598FC5A registered at PVG-S2",
+        "created_at": "2026-06-15 15:21:49"
+    },
+    {
+        "id": 24,
+        "found_item_id": 12,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-15 15:51:49"
+    },
+    {
+        "id": 25,
+        "found_item_id": 13,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-2FD741B0 registered at PVG-S2",
+        "created_at": "2026-07-03 15:21:49"
+    },
+    {
+        "id": 26,
+        "found_item_id": 13,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-07-03 15:51:49"
+    },
+    {
+        "id": 27,
+        "found_item_id": 14,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-6BC58A2F registered at PVG-S1",
+        "created_at": "2026-06-16 16:21:49"
+    },
+    {
+        "id": 28,
+        "found_item_id": 14,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-16 16:51:49"
+    },
+    {
+        "id": 29,
+        "found_item_id": 15,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-E095231A registered at PVG-S2",
+        "created_at": "2026-06-23 14:21:49"
+    },
+    {
+        "id": 30,
+        "found_item_id": 15,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-23 14:51:49"
+    },
+    {
+        "id": 31,
+        "found_item_id": 16,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-E958DD6F registered at PVG-S2",
+        "created_at": "2026-07-02 01:21:49"
+    },
+    {
+        "id": 32,
+        "found_item_id": 16,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-07-02 01:51:49"
+    },
+    {
+        "id": 33,
+        "found_item_id": 17,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-4CC919D2 registered at PVG-T1",
+        "created_at": "2026-06-28 21:21:49"
+    },
+    {
+        "id": 34,
+        "found_item_id": 17,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-28 21:51:49"
+    },
+    {
+        "id": 35,
+        "found_item_id": 18,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-333EA76D registered at PVG-S1",
+        "created_at": "2026-06-27 23:21:49"
+    },
+    {
+        "id": 36,
+        "found_item_id": 18,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-27 23:51:49"
+    },
+    {
+        "id": 37,
+        "found_item_id": 19,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-47D6A3E3 registered at PVG-S1",
+        "created_at": "2026-06-23 17:21:49"
+    },
+    {
+        "id": 38,
+        "found_item_id": 19,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-23 17:51:49"
+    },
+    {
+        "id": 39,
+        "found_item_id": 20,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-B4171C1A registered at PVG-T1",
+        "created_at": "2026-06-27 21:21:49"
+    },
+    {
+        "id": 40,
+        "found_item_id": 20,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-27 21:51:49"
+    },
+    {
+        "id": 41,
+        "found_item_id": 21,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-35F9DE6F registered at PVG-T1",
+        "created_at": "2026-06-28 18:21:49"
+    },
+    {
+        "id": 42,
+        "found_item_id": 21,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-28 18:51:49"
+    },
+    {
+        "id": 43,
+        "found_item_id": 22,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-584968AA registered at PVG-T1",
+        "created_at": "2026-07-04 14:21:49"
+    },
+    {
+        "id": 44,
+        "found_item_id": 22,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-07-04 14:51:49"
+    },
+    {
+        "id": 45,
+        "found_item_id": 23,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-DBA3C385 registered at PVG-S2",
+        "created_at": "2026-06-14 00:21:49"
+    },
+    {
+        "id": 46,
+        "found_item_id": 23,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-14 00:51:49"
+    },
+    {
+        "id": 47,
+        "found_item_id": 24,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-30FDC98F registered at PVG-T2",
+        "created_at": "2026-07-03 18:21:49"
+    },
+    {
+        "id": 48,
+        "found_item_id": 24,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-07-03 18:51:49"
+    },
+    {
+        "id": 49,
+        "found_item_id": 25,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-DFA75F65 registered at PVG-T2",
+        "created_at": "2026-07-04 14:21:49"
+    },
+    {
+        "id": 50,
+        "found_item_id": 25,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-07-04 14:51:49"
+    },
+    {
+        "id": 51,
+        "found_item_id": 26,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-E12F2C34 registered at PVG-S1",
+        "created_at": "2026-06-20 18:21:49"
+    },
+    {
+        "id": 52,
+        "found_item_id": 26,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-20 18:51:49"
+    },
+    {
+        "id": 53,
+        "found_item_id": 27,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-2D6D27A1 registered at PVG-T2",
+        "created_at": "2026-06-17 01:21:49"
+    },
+    {
+        "id": 54,
+        "found_item_id": 27,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-17 01:51:49"
+    },
+    {
+        "id": 55,
+        "found_item_id": 28,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-5764049C registered at PVG-T2",
+        "created_at": "2026-06-16 13:21:49"
+    },
+    {
+        "id": 56,
+        "found_item_id": 28,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-16 13:51:49"
+    },
+    {
+        "id": 57,
+        "found_item_id": 29,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-5487F0E6 registered at PVG-T2",
+        "created_at": "2026-06-20 19:21:49"
+    },
+    {
+        "id": 58,
+        "found_item_id": 29,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-20 19:51:49"
+    },
+    {
+        "id": 59,
+        "found_item_id": 30,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-2C9828D6 registered at PVG-S1",
+        "created_at": "2026-06-17 14:21:49"
+    },
+    {
+        "id": 60,
+        "found_item_id": 30,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-17 14:51:49"
+    },
+    {
+        "id": 61,
+        "found_item_id": 31,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-29FBED10 registered at PVG-T2",
+        "created_at": "2026-06-16 13:21:49"
+    },
+    {
+        "id": 62,
+        "found_item_id": 31,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-16 13:51:49"
+    },
+    {
+        "id": 63,
+        "found_item_id": 32,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-D4EE117D registered at PVG-T2",
+        "created_at": "2026-06-29 18:21:49"
+    },
+    {
+        "id": 64,
+        "found_item_id": 32,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-29 18:51:49"
+    },
+    {
+        "id": 65,
+        "found_item_id": 33,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-1FF465EA registered at PVG-S2",
+        "created_at": "2026-06-27 01:21:49"
+    },
+    {
+        "id": 66,
+        "found_item_id": 33,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-27 01:51:49"
+    },
+    {
+        "id": 67,
+        "found_item_id": 34,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-3901F2E4 registered at PVG-S1",
+        "created_at": "2026-06-29 13:21:49"
+    },
+    {
+        "id": 68,
+        "found_item_id": 34,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-29 13:51:49"
+    },
+    {
+        "id": 69,
+        "found_item_id": 35,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-8D0106F2 registered at PVG-S1",
+        "created_at": "2026-06-21 22:21:49"
+    },
+    {
+        "id": 70,
+        "found_item_id": 35,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-21 22:51:49"
+    },
+    {
+        "id": 71,
+        "found_item_id": 36,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-ED356E78 registered at PVG-S1",
+        "created_at": "2026-06-26 00:21:49"
+    },
+    {
+        "id": 72,
+        "found_item_id": 36,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-26 00:51:49"
+    },
+    {
+        "id": 73,
+        "found_item_id": 37,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-6C52CEF9 registered at PVG-S2",
+        "created_at": "2026-06-26 01:21:49"
+    },
+    {
+        "id": 74,
+        "found_item_id": 37,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-26 01:51:49"
+    },
+    {
+        "id": 75,
+        "found_item_id": 38,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-A40C806C registered at PVG-T1",
+        "created_at": "2026-06-29 13:21:49"
+    },
+    {
+        "id": 76,
+        "found_item_id": 38,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-29 13:51:49"
+    },
+    {
+        "id": 77,
+        "found_item_id": 39,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-42A1AACF registered at PVG-T1",
+        "created_at": "2026-06-21 21:21:49"
+    },
+    {
+        "id": 78,
+        "found_item_id": 39,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-21 21:51:49"
+    },
+    {
+        "id": 79,
+        "found_item_id": 40,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-0C0A7FCC registered at PVG-S2",
+        "created_at": "2026-06-23 20:21:49"
+    },
+    {
+        "id": 80,
+        "found_item_id": 40,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-23 20:51:49"
+    },
+    {
+        "id": 81,
+        "found_item_id": 41,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-3EC5663A registered at PVG-S2",
+        "created_at": "2026-06-14 00:21:49"
+    },
+    {
+        "id": 82,
+        "found_item_id": 41,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-14 00:51:49"
+    },
+    {
+        "id": 83,
+        "found_item_id": 42,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-ED381A9F registered at PVG-T1",
+        "created_at": "2026-06-19 14:21:49"
+    },
+    {
+        "id": 84,
+        "found_item_id": 42,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-19 14:51:49"
+    },
+    {
+        "id": 85,
+        "found_item_id": 43,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-821473F7 registered at PVG-S2",
+        "created_at": "2026-06-13 17:21:49"
+    },
+    {
+        "id": 86,
+        "found_item_id": 43,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-13 17:51:49"
+    },
+    {
+        "id": 87,
+        "found_item_id": 44,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-33725115 registered at PVG-T1",
+        "created_at": "2026-06-26 16:21:49"
+    },
+    {
+        "id": 88,
+        "found_item_id": 44,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-26 16:51:49"
+    },
+    {
+        "id": 89,
+        "found_item_id": 45,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-84416B7F registered at PVG-S1",
+        "created_at": "2026-07-03 15:21:49"
+    },
+    {
+        "id": 90,
+        "found_item_id": 45,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-07-03 15:51:49"
+    },
+    {
+        "id": 91,
+        "found_item_id": 46,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-B7DB54EF registered at PVG-S2",
+        "created_at": "2026-06-15 22:21:49"
+    },
+    {
+        "id": 92,
+        "found_item_id": 46,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-15 22:51:49"
+    },
+    {
+        "id": 93,
+        "found_item_id": 47,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-32DB687A registered at PVG-S1",
+        "created_at": "2026-06-21 16:21:49"
+    },
+    {
+        "id": 94,
+        "found_item_id": 47,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-21 16:51:49"
+    },
+    {
+        "id": 95,
+        "found_item_id": 48,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-FC994877 registered at PVG-T1",
+        "created_at": "2026-06-21 18:21:49"
+    },
+    {
+        "id": 96,
+        "found_item_id": 48,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-21 18:51:49"
+    },
+    {
+        "id": 97,
+        "found_item_id": 49,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-F0AF05CF registered at PVG-S2",
+        "created_at": "2026-06-23 01:21:49"
+    },
+    {
+        "id": 98,
+        "found_item_id": 49,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-23 01:51:49"
+    },
+    {
+        "id": 99,
+        "found_item_id": 50,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-3C9554E8 registered at PVG-S2",
+        "created_at": "2026-07-02 01:21:49"
+    },
+    {
+        "id": 100,
+        "found_item_id": 50,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-07-02 01:51:49"
+    },
+    {
+        "id": 101,
+        "found_item_id": 51,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-D6A2385A registered at PVG-S1",
+        "created_at": "2026-06-23 17:21:49"
+    },
+    {
+        "id": 102,
+        "found_item_id": 51,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-23 17:51:49"
+    },
+    {
+        "id": 103,
+        "found_item_id": 52,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-0F8E17CD registered at PVG-T2",
+        "created_at": "2026-06-14 23:21:49"
+    },
+    {
+        "id": 104,
+        "found_item_id": 52,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-14 23:51:49"
+    },
+    {
+        "id": 105,
+        "found_item_id": 53,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-42153040 registered at PVG-T2",
+        "created_at": "2026-07-02 13:21:49"
+    },
+    {
+        "id": 106,
+        "found_item_id": 53,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-07-02 13:51:49"
+    },
+    {
+        "id": 107,
+        "found_item_id": 54,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-410D8F74 registered at PVG-S1",
+        "created_at": "2026-07-02 22:21:49"
+    },
+    {
+        "id": 108,
+        "found_item_id": 54,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-07-02 22:51:49"
+    },
+    {
+        "id": 109,
+        "found_item_id": 55,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-BA26E6F5 registered at PVG-T2",
+        "created_at": "2026-06-28 21:21:49"
+    },
+    {
+        "id": 110,
+        "found_item_id": 55,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-28 21:51:49"
+    },
+    {
+        "id": 111,
+        "found_item_id": 56,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-A708AD5A registered at PVG-S1",
+        "created_at": "2026-06-21 17:21:49"
+    },
+    {
+        "id": 112,
+        "found_item_id": 56,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-21 17:51:49"
+    },
+    {
+        "id": 113,
+        "found_item_id": 57,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-14614370 registered at PVG-T1",
+        "created_at": "2026-07-03 21:21:49"
+    },
+    {
+        "id": 114,
+        "found_item_id": 57,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-07-03 21:51:49"
+    },
+    {
+        "id": 115,
+        "found_item_id": 58,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-F79872AB registered at PVG-T2",
+        "created_at": "2026-07-02 18:21:49"
+    },
+    {
+        "id": 116,
+        "found_item_id": 58,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-07-02 18:51:49"
+    },
+    {
+        "id": 117,
+        "found_item_id": 59,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-AC050D2D registered at PVG-T2",
+        "created_at": "2026-06-29 00:21:49"
+    },
+    {
+        "id": 118,
+        "found_item_id": 59,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-29 00:51:49"
+    },
+    {
+        "id": 119,
+        "found_item_id": 60,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-4E59ABD1 registered at PVG-S2",
+        "created_at": "2026-06-24 16:21:49"
+    },
+    {
+        "id": 120,
+        "found_item_id": 60,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-24 16:51:49"
+    },
+    {
+        "id": 121,
+        "found_item_id": 61,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-234E061D registered at PVG-T2",
+        "created_at": "2026-06-23 01:21:49"
+    },
+    {
+        "id": 122,
+        "found_item_id": 61,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-23 01:51:49"
+    },
+    {
+        "id": 123,
+        "found_item_id": 62,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-8C85F451 registered at PVG-T1",
+        "created_at": "2026-06-15 19:21:49"
+    },
+    {
+        "id": 124,
+        "found_item_id": 62,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-15 19:51:49"
+    },
+    {
+        "id": 125,
+        "found_item_id": 63,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-EB313D2C registered at PVG-T2",
+        "created_at": "2026-07-04 14:21:49"
+    },
+    {
+        "id": 126,
+        "found_item_id": 64,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-BC1862DD registered at PVG-T2",
+        "created_at": "2026-06-18 20:21:49"
+    },
+    {
+        "id": 127,
+        "found_item_id": 65,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-36CE12A5 registered at PVG-T2",
+        "created_at": "2026-06-24 20:21:49"
+    },
+    {
+        "id": 128,
+        "found_item_id": 66,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-DB20AB6B registered at PVG-S2",
+        "created_at": "2026-06-13 16:21:49"
+    },
+    {
+        "id": 129,
+        "found_item_id": 67,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-2F851362 registered at PVG-S1",
+        "created_at": "2026-06-24 18:21:49"
+    },
+    {
+        "id": 130,
+        "found_item_id": 68,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-3D386544 registered at PVG-S1",
+        "created_at": "2026-06-17 16:21:49"
+    },
+    {
+        "id": 131,
+        "found_item_id": 69,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-A5AE77DB registered at PVG-S1",
+        "created_at": "2026-07-04 14:21:49"
+    },
+    {
+        "id": 132,
+        "found_item_id": 70,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-0A853E43 registered at PVG-T2",
+        "created_at": "2026-06-17 22:21:49"
+    },
+    {
+        "id": 133,
+        "found_item_id": 71,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-1835311C registered at PVG-T2",
+        "created_at": "2026-06-23 20:21:49"
+    },
+    {
+        "id": 134,
+        "found_item_id": 72,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-4C6A6C0D registered at PVG-S1",
+        "created_at": "2026-06-24 00:21:49"
+    },
+    {
+        "id": 135,
+        "found_item_id": 73,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-5543CA16 registered at PVG-T2",
+        "created_at": "2026-06-18 14:21:49"
+    },
+    {
+        "id": 136,
+        "found_item_id": 73,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-18 14:51:49"
+    },
+    {
+        "id": 137,
+        "found_item_id": 74,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-862739D3 registered at PVG-S1",
+        "created_at": "2026-06-25 16:21:49"
+    },
+    {
+        "id": 138,
+        "found_item_id": 74,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-25 16:51:49"
+    },
+    {
+        "id": 139,
+        "found_item_id": 75,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-62938D92 registered at PVG-T2",
+        "created_at": "2026-06-21 01:21:49"
+    },
+    {
+        "id": 140,
+        "found_item_id": 75,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-21 01:51:49"
+    },
+    {
+        "id": 141,
+        "found_item_id": 76,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-5605814A registered at PVG-S1",
+        "created_at": "2026-06-18 14:21:49"
+    },
+    {
+        "id": 142,
+        "found_item_id": 76,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-18 14:51:49"
+    },
+    {
+        "id": 143,
+        "found_item_id": 77,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-165F43FC registered at PVG-T2",
+        "created_at": "2026-06-19 18:21:49"
+    },
+    {
+        "id": 144,
+        "found_item_id": 77,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-19 18:51:49"
+    },
+    {
+        "id": 145,
+        "found_item_id": 78,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-F93F9B77 registered at PVG-T2",
+        "created_at": "2026-06-30 23:21:49"
+    },
+    {
+        "id": 146,
+        "found_item_id": 78,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-30 23:51:49"
+    },
+    {
+        "id": 147,
+        "found_item_id": 79,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-255E24E0 registered at PVG-T2",
+        "created_at": "2026-06-29 23:21:49"
+    },
+    {
+        "id": 148,
+        "found_item_id": 79,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-29 23:51:49"
+    },
+    {
+        "id": 149,
+        "found_item_id": 80,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-84643E4C registered at PVG-T1",
+        "created_at": "2026-06-22 20:21:49"
+    },
+    {
+        "id": 150,
+        "found_item_id": 80,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-22 20:51:49"
+    },
+    {
+        "id": 151,
+        "found_item_id": 81,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-5E128353 registered at PVG-S2",
+        "created_at": "2026-06-25 15:21:49"
+    },
+    {
+        "id": 152,
+        "found_item_id": 81,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-25 15:51:49"
+    },
+    {
+        "id": 153,
+        "found_item_id": 82,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-72749907 registered at PVG-T1",
+        "created_at": "2026-06-20 22:21:49"
+    },
+    {
+        "id": 154,
+        "found_item_id": 82,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-20 22:51:49"
+    },
+    {
+        "id": 155,
+        "found_item_id": 83,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-090523FF registered at PVG-S2",
+        "created_at": "2026-06-15 21:21:49"
+    },
+    {
+        "id": 156,
+        "found_item_id": 83,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-15 21:51:49"
+    },
+    {
+        "id": 157,
+        "found_item_id": 84,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-F95A47EB registered at PVG-T1",
+        "created_at": "2026-06-22 17:21:49"
+    },
+    {
+        "id": 158,
+        "found_item_id": 84,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-22 17:51:49"
+    },
+    {
+        "id": 159,
+        "found_item_id": 85,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-C08B4282 registered at PVG-S2",
+        "created_at": "2026-06-30 13:21:49"
+    },
+    {
+        "id": 160,
+        "found_item_id": 85,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-30 13:51:49"
+    },
+    {
+        "id": 161,
+        "found_item_id": 86,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-9CD6CB90 registered at PVG-T2",
+        "created_at": "2026-06-27 13:21:49"
+    },
+    {
+        "id": 162,
+        "found_item_id": 86,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-27 13:51:49"
+    },
+    {
+        "id": 163,
+        "found_item_id": 87,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-C2497861 registered at PVG-S1",
+        "created_at": "2026-06-24 18:21:49"
+    },
+    {
+        "id": 164,
+        "found_item_id": 87,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-24 18:51:49"
+    },
+    {
+        "id": 165,
+        "found_item_id": 88,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-2E87924B registered at PVG-T2",
+        "created_at": "2026-06-24 19:21:49"
+    },
+    {
+        "id": 166,
+        "found_item_id": 88,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-24 19:51:49"
+    },
+    {
+        "id": 167,
+        "found_item_id": 89,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-E08E40C5 registered at PVG-T1",
+        "created_at": "2026-06-22 22:21:49"
+    },
+    {
+        "id": 168,
+        "found_item_id": 89,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-22 22:51:49"
+    },
+    {
+        "id": 169,
+        "found_item_id": 90,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-3DC99463 registered at PVG-S2",
+        "created_at": "2026-06-17 19:21:49"
+    },
+    {
+        "id": 170,
+        "found_item_id": 90,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-17 19:51:49"
+    },
+    {
+        "id": 171,
+        "found_item_id": 91,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-42F63F0C registered at PVG-T2",
+        "created_at": "2026-06-25 18:21:49"
+    },
+    {
+        "id": 172,
+        "found_item_id": 91,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-25 18:51:49"
+    },
+    {
+        "id": 173,
+        "found_item_id": 92,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-4667EA92 registered at PVG-T2",
+        "created_at": "2026-06-20 13:21:49"
+    },
+    {
+        "id": 174,
+        "found_item_id": 92,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-20 13:51:49"
+    },
+    {
+        "id": 175,
+        "found_item_id": 93,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-2D3E3256 registered at PVG-T2",
+        "created_at": "2026-06-27 16:21:49"
+    },
+    {
+        "id": 176,
+        "found_item_id": 93,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-27 16:51:49"
+    },
+    {
+        "id": 177,
+        "found_item_id": 94,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-BF4E6D2E registered at PVG-S2",
+        "created_at": "2026-06-29 00:21:49"
+    },
+    {
+        "id": 178,
+        "found_item_id": 94,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-29 00:51:49"
+    },
+    {
+        "id": 179,
+        "found_item_id": 95,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-02E7E4B6 registered at PVG-T2",
+        "created_at": "2026-06-26 20:21:49"
+    },
+    {
+        "id": 180,
+        "found_item_id": 95,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-26 20:51:49"
+    },
+    {
+        "id": 181,
+        "found_item_id": 96,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-B2AE40BB registered at PVG-S2",
+        "created_at": "2026-07-01 22:21:49"
+    },
+    {
+        "id": 182,
+        "found_item_id": 96,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-07-01 22:51:49"
+    },
+    {
+        "id": 183,
+        "found_item_id": 97,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-70D634A4 registered at PVG-S2",
+        "created_at": "2026-06-24 15:21:49"
+    },
+    {
+        "id": 184,
+        "found_item_id": 97,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-24 15:51:49"
+    },
+    {
+        "id": 185,
+        "found_item_id": 98,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-A64D0DA2 registered at PVG-S1",
+        "created_at": "2026-06-23 21:21:49"
+    },
+    {
+        "id": 186,
+        "found_item_id": 98,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-23 21:51:49"
+    },
+    {
+        "id": 187,
+        "found_item_id": 99,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-9F1F4E4C registered at PVG-T1",
+        "created_at": "2026-06-24 00:21:49"
+    },
+    {
+        "id": 188,
+        "found_item_id": 99,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-24 00:51:49"
+    },
+    {
+        "id": 189,
+        "found_item_id": 100,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-653D7CDD registered at PVG-S2",
+        "created_at": "2026-03-10 16:21:49"
+    },
+    {
+        "id": 190,
+        "found_item_id": 100,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-03-10 16:51:49"
+    },
+    {
+        "id": 191,
+        "found_item_id": 100,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from in-storage to donated",
+        "created_at": "2026-05-12 05:21:49"
+    },
+    {
+        "id": 192,
+        "found_item_id": 101,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-AFF2F74F registered at PVG-S1",
+        "created_at": "2026-03-28 00:21:49"
+    },
+    {
+        "id": 193,
+        "found_item_id": 101,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-03-28 00:51:49"
+    },
+    {
+        "id": 194,
+        "found_item_id": 101,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from in-storage to donated",
+        "created_at": "2026-05-29 05:21:49"
+    },
+    {
+        "id": 195,
+        "found_item_id": 102,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-88735552 registered at PVG-T2",
+        "created_at": "2026-04-15 19:21:49"
+    },
+    {
+        "id": 196,
+        "found_item_id": 102,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-04-15 19:51:49"
+    },
+    {
+        "id": 197,
+        "found_item_id": 102,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from in-storage to donated",
+        "created_at": "2026-06-17 05:21:49"
+    },
+    {
+        "id": 198,
+        "found_item_id": 103,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-8B460F39 registered at PVG-S2",
+        "created_at": "2026-04-19 15:21:49"
+    },
+    {
+        "id": 199,
+        "found_item_id": 103,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-04-19 15:51:49"
+    },
+    {
+        "id": 200,
+        "found_item_id": 103,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from in-storage to donated",
+        "created_at": "2026-06-21 05:21:49"
+    },
+    {
+        "id": 201,
+        "found_item_id": 104,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-7DEB8573 registered at PVG-T2",
+        "created_at": "2026-04-09 01:21:49"
+    },
+    {
+        "id": 202,
+        "found_item_id": 104,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-04-09 01:51:49"
+    },
+    {
+        "id": 203,
+        "found_item_id": 104,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from in-storage to donated",
+        "created_at": "2026-06-10 05:21:49"
+    },
+    {
+        "id": 204,
+        "found_item_id": 105,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-9BDADB62 registered at PVG-S2",
+        "created_at": "2026-03-18 14:21:49"
+    },
+    {
+        "id": 205,
+        "found_item_id": 105,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-03-18 14:51:49"
+    },
+    {
+        "id": 206,
+        "found_item_id": 105,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from in-storage to donated",
+        "created_at": "2026-05-20 05:21:49"
+    },
+    {
+        "id": 207,
+        "found_item_id": 106,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-D5B3CEB7 registered at PVG-S1",
+        "created_at": "2026-04-21 13:21:49"
+    },
+    {
+        "id": 208,
+        "found_item_id": 106,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-04-21 13:51:49"
+    },
+    {
+        "id": 209,
+        "found_item_id": 106,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from in-storage to donated",
+        "created_at": "2026-06-23 05:21:49"
+    },
+    {
+        "id": 210,
+        "found_item_id": 107,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-0137B031 registered at PVG-T2",
+        "created_at": "2026-04-23 23:21:49"
+    },
+    {
+        "id": 211,
+        "found_item_id": 107,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-04-23 23:51:49"
+    },
+    {
+        "id": 212,
+        "found_item_id": 107,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from in-storage to donated",
+        "created_at": "2026-06-25 05:21:49"
+    },
+    {
+        "id": 213,
+        "found_item_id": 108,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-2293FD49 registered at PVG-S1",
+        "created_at": "2026-04-02 14:21:49"
+    },
+    {
+        "id": 214,
+        "found_item_id": 108,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-04-02 14:51:49"
+    },
+    {
+        "id": 215,
+        "found_item_id": 108,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from in-storage to disposed",
+        "created_at": "2026-06-04 05:21:49"
+    },
+    {
+        "id": 216,
+        "found_item_id": 109,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-D80AF63D registered at PVG-S2",
+        "created_at": "2026-03-11 16:21:49"
+    },
+    {
+        "id": 217,
+        "found_item_id": 109,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-03-11 16:51:49"
+    },
+    {
+        "id": 218,
+        "found_item_id": 109,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from in-storage to disposed",
+        "created_at": "2026-05-13 05:21:49"
+    },
+    {
+        "id": 219,
+        "found_item_id": 110,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-66B2CA71 registered at PVG-T1",
+        "created_at": "2026-03-19 13:21:49"
+    },
+    {
+        "id": 220,
+        "found_item_id": 110,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-03-19 13:51:49"
+    },
+    {
+        "id": 221,
+        "found_item_id": 110,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from in-storage to disposed",
+        "created_at": "2026-05-21 05:21:49"
+    },
+    {
+        "id": 222,
+        "found_item_id": 111,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-C00A74B0 registered at PVG-T1",
+        "created_at": "2026-03-22 23:21:49"
+    },
+    {
+        "id": 223,
+        "found_item_id": 111,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-03-22 23:51:49"
+    },
+    {
+        "id": 224,
+        "found_item_id": 111,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from in-storage to disposed",
+        "created_at": "2026-05-24 05:21:49"
+    },
+    {
+        "id": 225,
+        "found_item_id": 112,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-FBA7633C registered at PVG-T2",
+        "created_at": "2026-03-22 22:21:49"
+    },
+    {
+        "id": 226,
+        "found_item_id": 112,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-03-22 22:51:49"
+    },
+    {
+        "id": 227,
+        "found_item_id": 112,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from in-storage to disposed",
+        "created_at": "2026-05-24 05:21:49"
+    },
+    {
+        "id": 228,
+        "found_item_id": 113,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-88635BA2 registered at PVG-S2",
+        "created_at": "2026-03-29 16:21:49"
+    },
+    {
+        "id": 229,
+        "found_item_id": 113,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-03-29 16:51:49"
+    },
+    {
+        "id": 230,
+        "found_item_id": 113,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from in-storage to disposed",
+        "created_at": "2026-05-31 05:21:49"
+    },
+    {
+        "id": 231,
+        "found_item_id": 114,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-15DA529D registered at PVG-S2",
+        "created_at": "2026-03-25 17:21:49"
+    },
+    {
+        "id": 232,
+        "found_item_id": 114,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-03-25 17:51:49"
+    },
+    {
+        "id": 233,
+        "found_item_id": 114,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from in-storage to disposed",
+        "created_at": "2026-05-27 05:21:49"
+    },
+    {
+        "id": 234,
+        "found_item_id": 115,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-70DB17B8 registered at PVG-T1",
+        "created_at": "2026-03-21 20:21:49"
+    },
+    {
+        "id": 235,
+        "found_item_id": 115,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-03-21 20:51:49"
+    },
+    {
+        "id": 236,
+        "found_item_id": 115,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from in-storage to disposed",
+        "created_at": "2026-05-23 05:21:49"
+    },
+    {
+        "id": 237,
+        "found_item_id": 116,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-049E7BA3 registered at PVG-T1",
+        "created_at": "2026-07-04 14:21:49"
+    },
+    {
+        "id": 238,
+        "found_item_id": 117,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-A000A1D0 registered at PVG-T2",
+        "created_at": "2026-07-04 14:21:49"
+    },
+    {
+        "id": 239,
+        "found_item_id": 118,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-CE5632C0 registered at PVG-S2",
+        "created_at": "2026-07-04 12:21:49"
+    },
+    {
+        "id": 240,
+        "found_item_id": 119,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_registered",
+        "details": "Item FI-A94AA351 registered at PVG-T1",
+        "created_at": "2026-07-01 15:21:49"
+    },
+    {
+        "id": 241,
+        "found_item_id": 119,
+        "claim_id": null,
+        "user_id": 3,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-07-01 15:51:49"
+    },
+    {
+        "id": 242,
+        "found_item_id": 120,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_registered",
+        "details": "Item FI-C8BA2B26 registered at PVG-T2",
+        "created_at": "2026-06-29 15:21:49"
+    },
+    {
+        "id": 243,
+        "found_item_id": 120,
+        "claim_id": null,
+        "user_id": 4,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-29 15:51:49"
+    },
+    {
+        "id": 244,
+        "found_item_id": 121,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-C8ED75B2 registered at PVG-T1",
+        "created_at": "2026-06-24 15:21:49"
+    },
+    {
+        "id": 245,
+        "found_item_id": 121,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-24 15:51:49"
+    },
+    {
+        "id": 246,
+        "found_item_id": 122,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-A84DC2F0 registered at PVG-T1",
+        "created_at": "2026-07-01 15:21:49"
+    },
+    {
+        "id": 247,
+        "found_item_id": 122,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-07-01 15:51:49"
+    },
+    {
+        "id": 248,
+        "found_item_id": 123,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_registered",
+        "details": "Item FI-A483C06C registered at PVG-T2",
+        "created_at": "2026-06-21 15:21:49"
+    },
+    {
+        "id": 249,
+        "found_item_id": 123,
+        "claim_id": null,
+        "user_id": 1,
+        "action": "item_status_changed",
+        "details": "Status changed from registered to in-storage",
+        "created_at": "2026-06-21 15:51:49"
+    },
+    {
+        "id": 250,
+        "found_item_id": null,
+        "claim_id": 1,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-F8DA73A7 filed by passenger",
+        "created_at": "2026-07-02 17:21:49"
+    },
+    {
+        "id": 251,
+        "found_item_id": null,
+        "claim_id": 1,
+        "user_id": 3,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-07-02 21:21:49"
+    },
+    {
+        "id": 252,
+        "found_item_id": null,
+        "claim_id": 2,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-4EAA9FE6 filed by passenger",
+        "created_at": "2026-06-27 16:21:49"
+    },
+    {
+        "id": 253,
+        "found_item_id": null,
+        "claim_id": 2,
+        "user_id": 4,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-27 20:21:49"
+    },
+    {
+        "id": 254,
+        "found_item_id": 93,
+        "claim_id": 2,
+        "user_id": 4,
+        "action": "claim_matched",
+        "details": "Claim CL-4EAA9FE6 matched to item FI-2D3E3256",
+        "created_at": "2026-06-28 04:21:49"
+    },
+    {
+        "id": 255,
+        "found_item_id": null,
+        "claim_id": 3,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-A68F9936 filed by passenger",
+        "created_at": "2026-06-29 17:21:49"
+    },
+    {
+        "id": 256,
+        "found_item_id": null,
+        "claim_id": 3,
+        "user_id": 4,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-29 21:21:49"
+    },
+    {
+        "id": 257,
+        "found_item_id": 94,
+        "claim_id": 3,
+        "user_id": 4,
+        "action": "claim_matched",
+        "details": "Claim CL-A68F9936 matched to item FI-BF4E6D2E",
+        "created_at": "2026-06-30 05:21:49"
+    },
+    {
+        "id": 258,
+        "found_item_id": null,
+        "claim_id": 4,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-47E243A0 filed by passenger",
+        "created_at": "2026-06-17 01:21:49"
+    },
+    {
+        "id": 259,
+        "found_item_id": null,
+        "claim_id": 4,
+        "user_id": 4,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-17 05:21:49"
+    },
+    {
+        "id": 260,
+        "found_item_id": 73,
+        "claim_id": 4,
+        "user_id": 4,
+        "action": "claim_matched",
+        "details": "Claim CL-47E243A0 matched to item FI-5543CA16",
+        "created_at": "2026-06-17 13:21:49"
+    },
+    {
+        "id": 261,
+        "found_item_id": 73,
+        "claim_id": 4,
+        "user_id": 4,
+        "action": "claim_resolved",
+        "details": "Claim CL-47E243A0 resolved — item returned to passenger",
+        "created_at": "2026-06-18 11:21:49"
+    },
+    {
+        "id": 262,
+        "found_item_id": null,
+        "claim_id": 5,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-05B739AC filed by passenger",
+        "created_at": "2026-06-25 21:21:49"
+    },
+    {
+        "id": 263,
+        "found_item_id": null,
+        "claim_id": 5,
+        "user_id": 3,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-26 01:21:49"
+    },
+    {
+        "id": 264,
+        "found_item_id": 74,
+        "claim_id": 5,
+        "user_id": 3,
+        "action": "claim_matched",
+        "details": "Claim CL-05B739AC matched to item FI-862739D3",
+        "created_at": "2026-06-26 09:21:49"
+    },
+    {
+        "id": 265,
+        "found_item_id": 74,
+        "claim_id": 5,
+        "user_id": 3,
+        "action": "claim_resolved",
+        "details": "Claim CL-05B739AC resolved — item returned to passenger",
+        "created_at": "2026-06-27 07:21:49"
+    },
+    {
+        "id": 266,
+        "found_item_id": null,
+        "claim_id": 6,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-4F50CA3A filed by passenger",
+        "created_at": "2026-06-19 06:21:49"
+    },
+    {
+        "id": 267,
+        "found_item_id": null,
+        "claim_id": 6,
+        "user_id": 4,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-19 10:21:49"
+    },
+    {
+        "id": 268,
+        "found_item_id": 75,
+        "claim_id": 6,
+        "user_id": 4,
+        "action": "claim_matched",
+        "details": "Claim CL-4F50CA3A matched to item FI-62938D92",
+        "created_at": "2026-06-19 18:21:49"
+    },
+    {
+        "id": 269,
+        "found_item_id": 75,
+        "claim_id": 6,
+        "user_id": 4,
+        "action": "claim_resolved",
+        "details": "Claim CL-4F50CA3A resolved — item returned to passenger",
+        "created_at": "2026-06-20 16:21:49"
+    },
+    {
+        "id": 270,
+        "found_item_id": null,
+        "claim_id": 7,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-159A337A filed by passenger",
+        "created_at": "2026-06-19 16:21:49"
+    },
+    {
+        "id": 271,
+        "found_item_id": null,
+        "claim_id": 7,
+        "user_id": 3,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-19 20:21:49"
+    },
+    {
+        "id": 272,
+        "found_item_id": 76,
+        "claim_id": 7,
+        "user_id": 3,
+        "action": "claim_matched",
+        "details": "Claim CL-159A337A matched to item FI-5605814A",
+        "created_at": "2026-06-20 04:21:49"
+    },
+    {
+        "id": 273,
+        "found_item_id": 76,
+        "claim_id": 7,
+        "user_id": 3,
+        "action": "claim_resolved",
+        "details": "Claim CL-159A337A resolved — item returned to passenger",
+        "created_at": "2026-06-21 02:21:49"
+    },
+    {
+        "id": 274,
+        "found_item_id": null,
+        "claim_id": 8,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-C3056D57 filed by passenger",
+        "created_at": "2026-06-19 18:21:49"
+    },
+    {
+        "id": 275,
+        "found_item_id": null,
+        "claim_id": 8,
+        "user_id": 4,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-19 22:21:49"
+    },
+    {
+        "id": 276,
+        "found_item_id": 77,
+        "claim_id": 8,
+        "user_id": 4,
+        "action": "claim_matched",
+        "details": "Claim CL-C3056D57 matched to item FI-165F43FC",
+        "created_at": "2026-06-20 06:21:49"
+    },
+    {
+        "id": 277,
+        "found_item_id": 77,
+        "claim_id": 8,
+        "user_id": 4,
+        "action": "claim_resolved",
+        "details": "Claim CL-C3056D57 resolved — item returned to passenger",
+        "created_at": "2026-06-21 04:21:49"
+    },
+    {
+        "id": 278,
+        "found_item_id": null,
+        "claim_id": 9,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-FEEDF97E filed by passenger",
+        "created_at": "2026-06-30 06:21:49"
+    },
+    {
+        "id": 279,
+        "found_item_id": null,
+        "claim_id": 9,
+        "user_id": 4,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-30 10:21:49"
+    },
+    {
+        "id": 280,
+        "found_item_id": 78,
+        "claim_id": 9,
+        "user_id": 4,
+        "action": "claim_matched",
+        "details": "Claim CL-FEEDF97E matched to item FI-F93F9B77",
+        "created_at": "2026-06-30 18:21:49"
+    },
+    {
+        "id": 281,
+        "found_item_id": 78,
+        "claim_id": 9,
+        "user_id": 4,
+        "action": "claim_resolved",
+        "details": "Claim CL-FEEDF97E resolved — item returned to passenger",
+        "created_at": "2026-07-01 16:21:49"
+    },
+    {
+        "id": 282,
+        "found_item_id": null,
+        "claim_id": 10,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-205EBEDF filed by passenger",
+        "created_at": "2026-06-25 06:21:49"
+    },
+    {
+        "id": 283,
+        "found_item_id": null,
+        "claim_id": 10,
+        "user_id": 4,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-25 10:21:49"
+    },
+    {
+        "id": 284,
+        "found_item_id": null,
+        "claim_id": 11,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-A795AADD filed by passenger",
+        "created_at": "2026-06-20 21:21:49"
+    },
+    {
+        "id": 285,
+        "found_item_id": null,
+        "claim_id": 11,
+        "user_id": 4,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-21 01:21:49"
+    },
+    {
+        "id": 286,
+        "found_item_id": null,
+        "claim_id": 12,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-BB793915 filed by passenger",
+        "created_at": "2026-06-26 07:21:49"
+    },
+    {
+        "id": 287,
+        "found_item_id": null,
+        "claim_id": 12,
+        "user_id": 4,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-26 11:21:49"
+    },
+    {
+        "id": 288,
+        "found_item_id": null,
+        "claim_id": 12,
+        "user_id": 4,
+        "action": "claim_rejected",
+        "details": "No matching item found in storage",
+        "created_at": "2026-06-27 07:21:49"
+    },
+    {
+        "id": 289,
+        "found_item_id": null,
+        "claim_id": 13,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-5EC8885D filed by passenger",
+        "created_at": "2026-06-24 11:21:49"
+    },
+    {
+        "id": 290,
+        "found_item_id": null,
+        "claim_id": 13,
+        "user_id": 4,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-24 15:21:49"
+    },
+    {
+        "id": 291,
+        "found_item_id": null,
+        "claim_id": 13,
+        "user_id": 4,
+        "action": "claim_rejected",
+        "details": "No matching item found in storage",
+        "created_at": "2026-06-25 11:21:49"
+    },
+    {
+        "id": 292,
+        "found_item_id": null,
+        "claim_id": 14,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-EC45F50E filed by passenger",
+        "created_at": "2026-06-19 14:21:49"
+    },
+    {
+        "id": 293,
+        "found_item_id": null,
+        "claim_id": 14,
+        "user_id": null,
+        "action": "claim_withdrawn",
+        "details": "Status changed from submitted to withdrawn",
+        "created_at": "2026-06-20 00:21:49"
+    },
+    {
+        "id": 294,
+        "found_item_id": null,
+        "claim_id": 15,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-59E373BC filed by passenger",
+        "created_at": "2026-06-21 13:21:49"
+    },
+    {
+        "id": 295,
+        "found_item_id": null,
+        "claim_id": 15,
+        "user_id": null,
+        "action": "claim_withdrawn",
+        "details": "Status changed from submitted to withdrawn",
+        "created_at": "2026-06-21 23:21:49"
+    },
+    {
+        "id": 296,
+        "found_item_id": null,
+        "claim_id": 16,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-3EEC5966 filed by passenger",
+        "created_at": "2026-07-01 07:21:49"
+    },
+    {
+        "id": 297,
+        "found_item_id": null,
+        "claim_id": 17,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-055114C9 filed by passenger",
+        "created_at": "2026-07-01 09:21:49"
+    },
+    {
+        "id": 298,
+        "found_item_id": null,
+        "claim_id": 18,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-6C666694 filed by passenger",
+        "created_at": "2026-06-14 03:21:49"
+    },
+    {
+        "id": 299,
+        "found_item_id": null,
+        "claim_id": 19,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-37E1D480 filed by passenger",
+        "created_at": "2026-06-17 06:21:49"
+    },
+    {
+        "id": 300,
+        "found_item_id": null,
+        "claim_id": 20,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-62B7CE4A filed by passenger",
+        "created_at": "2026-06-20 20:21:49"
+    },
+    {
+        "id": 301,
+        "found_item_id": null,
+        "claim_id": 21,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-0E7FD96E filed by passenger",
+        "created_at": "2026-06-15 20:21:49"
+    },
+    {
+        "id": 302,
+        "found_item_id": null,
+        "claim_id": 22,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-8FD819A5 filed by passenger",
+        "created_at": "2026-06-16 21:21:49"
+    },
+    {
+        "id": 303,
+        "found_item_id": null,
+        "claim_id": 23,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-D2C3F006 filed by passenger",
+        "created_at": "2026-06-16 19:21:49"
+    },
+    {
+        "id": 304,
+        "found_item_id": null,
+        "claim_id": 24,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-0E65B7FB filed by passenger",
+        "created_at": "2026-06-17 10:21:49"
+    },
+    {
+        "id": 305,
+        "found_item_id": null,
+        "claim_id": 24,
+        "user_id": 4,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-17 14:21:49"
+    },
+    {
+        "id": 306,
+        "found_item_id": null,
+        "claim_id": 25,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-8AEF0A17 filed by passenger",
+        "created_at": "2026-06-20 01:21:49"
+    },
+    {
+        "id": 307,
+        "found_item_id": null,
+        "claim_id": 25,
+        "user_id": 4,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-20 05:21:49"
+    },
+    {
+        "id": 308,
+        "found_item_id": null,
+        "claim_id": 26,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-3ED915E7 filed by passenger",
+        "created_at": "2026-07-01 16:21:49"
+    },
+    {
+        "id": 309,
+        "found_item_id": null,
+        "claim_id": 26,
+        "user_id": 3,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-07-01 20:21:49"
+    },
+    {
+        "id": 310,
+        "found_item_id": null,
+        "claim_id": 27,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-F76D0832 filed by passenger",
+        "created_at": "2026-06-25 16:21:49"
+    },
+    {
+        "id": 311,
+        "found_item_id": null,
+        "claim_id": 27,
+        "user_id": 3,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-25 20:21:49"
+    },
+    {
+        "id": 312,
+        "found_item_id": null,
+        "claim_id": 28,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-426115CA filed by passenger",
+        "created_at": "2026-06-27 01:21:49"
+    },
+    {
+        "id": 313,
+        "found_item_id": null,
+        "claim_id": 28,
+        "user_id": 4,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-27 05:21:49"
+    },
+    {
+        "id": 314,
+        "found_item_id": null,
+        "claim_id": 29,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-37EC469B filed by passenger",
+        "created_at": "2026-06-24 06:21:49"
+    },
+    {
+        "id": 315,
+        "found_item_id": null,
+        "claim_id": 29,
+        "user_id": 3,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-24 10:21:49"
+    },
+    {
+        "id": 316,
+        "found_item_id": null,
+        "claim_id": 30,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-58CB9F68 filed by passenger",
+        "created_at": "2026-06-20 06:21:49"
+    },
+    {
+        "id": 317,
+        "found_item_id": null,
+        "claim_id": 30,
+        "user_id": 3,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-20 10:21:49"
+    },
+    {
+        "id": 318,
+        "found_item_id": null,
+        "claim_id": 31,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-17F4D207 filed by passenger",
+        "created_at": "2026-06-27 06:21:49"
+    },
+    {
+        "id": 319,
+        "found_item_id": null,
+        "claim_id": 31,
+        "user_id": 4,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-27 10:21:49"
+    },
+    {
+        "id": 320,
+        "found_item_id": 95,
+        "claim_id": 31,
+        "user_id": 4,
+        "action": "claim_matched",
+        "details": "Claim CL-17F4D207 matched to item FI-02E7E4B6",
+        "created_at": "2026-06-27 18:21:49"
+    },
+    {
+        "id": 321,
+        "found_item_id": null,
+        "claim_id": 32,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-2C60562D filed by passenger",
+        "created_at": "2026-07-01 01:21:49"
+    },
+    {
+        "id": 322,
+        "found_item_id": null,
+        "claim_id": 32,
+        "user_id": 4,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-07-01 05:21:49"
+    },
+    {
+        "id": 323,
+        "found_item_id": 96,
+        "claim_id": 32,
+        "user_id": 4,
+        "action": "claim_matched",
+        "details": "Claim CL-2C60562D matched to item FI-B2AE40BB",
+        "created_at": "2026-07-01 13:21:49"
+    },
+    {
+        "id": 324,
+        "found_item_id": null,
+        "claim_id": 33,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-FCCCC052 filed by passenger",
+        "created_at": "2026-06-25 04:21:49"
+    },
+    {
+        "id": 325,
+        "found_item_id": null,
+        "claim_id": 33,
+        "user_id": 4,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-25 08:21:49"
+    },
+    {
+        "id": 326,
+        "found_item_id": 97,
+        "claim_id": 33,
+        "user_id": 4,
+        "action": "claim_matched",
+        "details": "Claim CL-FCCCC052 matched to item FI-70D634A4",
+        "created_at": "2026-06-25 16:21:49"
+    },
+    {
+        "id": 327,
+        "found_item_id": null,
+        "claim_id": 34,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-C39151EB filed by passenger",
+        "created_at": "2026-06-22 09:21:49"
+    },
+    {
+        "id": 328,
+        "found_item_id": null,
+        "claim_id": 34,
+        "user_id": 3,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-22 13:21:49"
+    },
+    {
+        "id": 329,
+        "found_item_id": 98,
+        "claim_id": 34,
+        "user_id": 3,
+        "action": "claim_matched",
+        "details": "Claim CL-C39151EB matched to item FI-A64D0DA2",
+        "created_at": "2026-06-22 21:21:49"
+    },
+    {
+        "id": 330,
+        "found_item_id": null,
+        "claim_id": 35,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-0BB4114D filed by passenger",
+        "created_at": "2026-06-24 16:21:49"
+    },
+    {
+        "id": 331,
+        "found_item_id": null,
+        "claim_id": 35,
+        "user_id": 3,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-24 20:21:49"
+    },
+    {
+        "id": 332,
+        "found_item_id": 99,
+        "claim_id": 35,
+        "user_id": 3,
+        "action": "claim_matched",
+        "details": "Claim CL-0BB4114D matched to item FI-9F1F4E4C",
+        "created_at": "2026-06-25 04:21:49"
+    },
+    {
+        "id": 333,
+        "found_item_id": null,
+        "claim_id": 36,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-5F512F25 filed by passenger",
+        "created_at": "2026-06-28 05:21:49"
+    },
+    {
+        "id": 334,
+        "found_item_id": null,
+        "claim_id": 36,
+        "user_id": 4,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-28 09:21:49"
+    },
+    {
+        "id": 335,
+        "found_item_id": 79,
+        "claim_id": 36,
+        "user_id": 4,
+        "action": "claim_matched",
+        "details": "Claim CL-5F512F25 matched to item FI-255E24E0",
+        "created_at": "2026-06-28 17:21:49"
+    },
+    {
+        "id": 336,
+        "found_item_id": 79,
+        "claim_id": 36,
+        "user_id": 4,
+        "action": "claim_resolved",
+        "details": "Claim CL-5F512F25 resolved — item returned to passenger",
+        "created_at": "2026-06-29 15:21:49"
+    },
+    {
+        "id": 337,
+        "found_item_id": null,
+        "claim_id": 37,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-D13D8324 filed by passenger",
+        "created_at": "2026-06-22 21:21:49"
+    },
+    {
+        "id": 338,
+        "found_item_id": null,
+        "claim_id": 37,
+        "user_id": 3,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-23 01:21:49"
+    },
+    {
+        "id": 339,
+        "found_item_id": 80,
+        "claim_id": 37,
+        "user_id": 3,
+        "action": "claim_matched",
+        "details": "Claim CL-D13D8324 matched to item FI-84643E4C",
+        "created_at": "2026-06-23 09:21:49"
+    },
+    {
+        "id": 340,
+        "found_item_id": 80,
+        "claim_id": 37,
+        "user_id": 3,
+        "action": "claim_resolved",
+        "details": "Claim CL-D13D8324 resolved — item returned to passenger",
+        "created_at": "2026-06-24 07:21:49"
+    },
+    {
+        "id": 341,
+        "found_item_id": null,
+        "claim_id": 38,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-6E41EF6F filed by passenger",
+        "created_at": "2026-06-24 03:21:49"
+    },
+    {
+        "id": 342,
+        "found_item_id": null,
+        "claim_id": 38,
+        "user_id": 4,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-24 07:21:49"
+    },
+    {
+        "id": 343,
+        "found_item_id": 81,
+        "claim_id": 38,
+        "user_id": 4,
+        "action": "claim_matched",
+        "details": "Claim CL-6E41EF6F matched to item FI-5E128353",
+        "created_at": "2026-06-24 15:21:49"
+    },
+    {
+        "id": 344,
+        "found_item_id": 81,
+        "claim_id": 38,
+        "user_id": 4,
+        "action": "claim_resolved",
+        "details": "Claim CL-6E41EF6F resolved — item returned to passenger",
+        "created_at": "2026-06-25 13:21:49"
+    },
+    {
+        "id": 345,
+        "found_item_id": null,
+        "claim_id": 39,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-D198EF35 filed by passenger",
+        "created_at": "2026-06-21 01:21:49"
+    },
+    {
+        "id": 346,
+        "found_item_id": null,
+        "claim_id": 39,
+        "user_id": 3,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-21 05:21:49"
+    },
+    {
+        "id": 347,
+        "found_item_id": 82,
+        "claim_id": 39,
+        "user_id": 3,
+        "action": "claim_matched",
+        "details": "Claim CL-D198EF35 matched to item FI-72749907",
+        "created_at": "2026-06-21 13:21:49"
+    },
+    {
+        "id": 348,
+        "found_item_id": 82,
+        "claim_id": 39,
+        "user_id": 3,
+        "action": "claim_resolved",
+        "details": "Claim CL-D198EF35 resolved — item returned to passenger",
+        "created_at": "2026-06-22 11:21:49"
+    },
+    {
+        "id": 349,
+        "found_item_id": null,
+        "claim_id": 40,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-086A90D7 filed by passenger",
+        "created_at": "2026-06-14 21:21:49"
+    },
+    {
+        "id": 350,
+        "found_item_id": null,
+        "claim_id": 40,
+        "user_id": 4,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-15 01:21:49"
+    },
+    {
+        "id": 351,
+        "found_item_id": 83,
+        "claim_id": 40,
+        "user_id": 4,
+        "action": "claim_matched",
+        "details": "Claim CL-086A90D7 matched to item FI-090523FF",
+        "created_at": "2026-06-15 09:21:49"
+    },
+    {
+        "id": 352,
+        "found_item_id": 83,
+        "claim_id": 40,
+        "user_id": 4,
+        "action": "claim_resolved",
+        "details": "Claim CL-086A90D7 resolved — item returned to passenger",
+        "created_at": "2026-06-16 07:21:49"
+    },
+    {
+        "id": 353,
+        "found_item_id": null,
+        "claim_id": 41,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-9B3E4FFA filed by passenger",
+        "created_at": "2026-06-21 07:21:49"
+    },
+    {
+        "id": 354,
+        "found_item_id": null,
+        "claim_id": 41,
+        "user_id": 3,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-21 11:21:49"
+    },
+    {
+        "id": 355,
+        "found_item_id": 84,
+        "claim_id": 41,
+        "user_id": 3,
+        "action": "claim_matched",
+        "details": "Claim CL-9B3E4FFA matched to item FI-F95A47EB",
+        "created_at": "2026-06-21 19:21:49"
+    },
+    {
+        "id": 356,
+        "found_item_id": 84,
+        "claim_id": 41,
+        "user_id": 3,
+        "action": "claim_resolved",
+        "details": "Claim CL-9B3E4FFA resolved — item returned to passenger",
+        "created_at": "2026-06-22 17:21:49"
+    },
+    {
+        "id": 357,
+        "found_item_id": null,
+        "claim_id": 42,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-B3CCDC97 filed by passenger",
+        "created_at": "2026-07-01 16:21:49"
+    },
+    {
+        "id": 358,
+        "found_item_id": null,
+        "claim_id": 42,
+        "user_id": 4,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-07-01 20:21:49"
+    },
+    {
+        "id": 359,
+        "found_item_id": 85,
+        "claim_id": 42,
+        "user_id": 4,
+        "action": "claim_matched",
+        "details": "Claim CL-B3CCDC97 matched to item FI-C08B4282",
+        "created_at": "2026-07-02 04:21:49"
+    },
+    {
+        "id": 360,
+        "found_item_id": 85,
+        "claim_id": 42,
+        "user_id": 4,
+        "action": "claim_resolved",
+        "details": "Claim CL-B3CCDC97 resolved — item returned to passenger",
+        "created_at": "2026-07-03 02:21:49"
+    },
+    {
+        "id": 361,
+        "found_item_id": null,
+        "claim_id": 43,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-A5592754 filed by passenger",
+        "created_at": "2026-06-27 13:21:49"
+    },
+    {
+        "id": 362,
+        "found_item_id": null,
+        "claim_id": 43,
+        "user_id": 4,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-27 17:21:49"
+    },
+    {
+        "id": 363,
+        "found_item_id": 86,
+        "claim_id": 43,
+        "user_id": 4,
+        "action": "claim_matched",
+        "details": "Claim CL-A5592754 matched to item FI-9CD6CB90",
+        "created_at": "2026-06-28 01:21:49"
+    },
+    {
+        "id": 364,
+        "found_item_id": 86,
+        "claim_id": 43,
+        "user_id": 4,
+        "action": "claim_resolved",
+        "details": "Claim CL-A5592754 resolved — item returned to passenger",
+        "created_at": "2026-06-28 23:21:49"
+    },
+    {
+        "id": 365,
+        "found_item_id": null,
+        "claim_id": 44,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-7544E2AF filed by passenger",
+        "created_at": "2026-06-23 13:21:49"
+    },
+    {
+        "id": 366,
+        "found_item_id": null,
+        "claim_id": 44,
+        "user_id": 3,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-23 17:21:49"
+    },
+    {
+        "id": 367,
+        "found_item_id": 87,
+        "claim_id": 44,
+        "user_id": 3,
+        "action": "claim_matched",
+        "details": "Claim CL-7544E2AF matched to item FI-C2497861",
+        "created_at": "2026-06-24 01:21:49"
+    },
+    {
+        "id": 368,
+        "found_item_id": 87,
+        "claim_id": 44,
+        "user_id": 3,
+        "action": "claim_resolved",
+        "details": "Claim CL-7544E2AF resolved — item returned to passenger",
+        "created_at": "2026-06-24 23:21:49"
+    },
+    {
+        "id": 369,
+        "found_item_id": null,
+        "claim_id": 45,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-ECB7529A filed by passenger",
+        "created_at": "2026-06-23 10:21:49"
+    },
+    {
+        "id": 370,
+        "found_item_id": null,
+        "claim_id": 45,
+        "user_id": 4,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-23 14:21:49"
+    },
+    {
+        "id": 371,
+        "found_item_id": 88,
+        "claim_id": 45,
+        "user_id": 4,
+        "action": "claim_matched",
+        "details": "Claim CL-ECB7529A matched to item FI-2E87924B",
+        "created_at": "2026-06-23 22:21:49"
+    },
+    {
+        "id": 372,
+        "found_item_id": 88,
+        "claim_id": 45,
+        "user_id": 4,
+        "action": "claim_resolved",
+        "details": "Claim CL-ECB7529A resolved — item returned to passenger",
+        "created_at": "2026-06-24 20:21:49"
+    },
+    {
+        "id": 373,
+        "found_item_id": null,
+        "claim_id": 46,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-EB69206C filed by passenger",
+        "created_at": "2026-06-22 14:21:49"
+    },
+    {
+        "id": 374,
+        "found_item_id": null,
+        "claim_id": 46,
+        "user_id": 3,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-22 18:21:49"
+    },
+    {
+        "id": 375,
+        "found_item_id": 89,
+        "claim_id": 46,
+        "user_id": 3,
+        "action": "claim_matched",
+        "details": "Claim CL-EB69206C matched to item FI-E08E40C5",
+        "created_at": "2026-06-23 02:21:49"
+    },
+    {
+        "id": 376,
+        "found_item_id": 89,
+        "claim_id": 46,
+        "user_id": 3,
+        "action": "claim_resolved",
+        "details": "Claim CL-EB69206C resolved — item returned to passenger",
+        "created_at": "2026-06-24 00:21:49"
+    },
+    {
+        "id": 377,
+        "found_item_id": null,
+        "claim_id": 47,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-C95BDC9F filed by passenger",
+        "created_at": "2026-06-16 03:21:49"
+    },
+    {
+        "id": 378,
+        "found_item_id": null,
+        "claim_id": 47,
+        "user_id": 4,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-16 07:21:49"
+    },
+    {
+        "id": 379,
+        "found_item_id": 90,
+        "claim_id": 47,
+        "user_id": 4,
+        "action": "claim_matched",
+        "details": "Claim CL-C95BDC9F matched to item FI-3DC99463",
+        "created_at": "2026-06-16 15:21:49"
+    },
+    {
+        "id": 380,
+        "found_item_id": 90,
+        "claim_id": 47,
+        "user_id": 4,
+        "action": "claim_resolved",
+        "details": "Claim CL-C95BDC9F resolved — item returned to passenger",
+        "created_at": "2026-06-17 13:21:49"
+    },
+    {
+        "id": 381,
+        "found_item_id": null,
+        "claim_id": 48,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-02AD627D filed by passenger",
+        "created_at": "2026-06-25 05:21:49"
+    },
+    {
+        "id": 382,
+        "found_item_id": null,
+        "claim_id": 48,
+        "user_id": 4,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-25 09:21:49"
+    },
+    {
+        "id": 383,
+        "found_item_id": 91,
+        "claim_id": 48,
+        "user_id": 4,
+        "action": "claim_matched",
+        "details": "Claim CL-02AD627D matched to item FI-42F63F0C",
+        "created_at": "2026-06-25 17:21:49"
+    },
+    {
+        "id": 384,
+        "found_item_id": 91,
+        "claim_id": 48,
+        "user_id": 4,
+        "action": "claim_resolved",
+        "details": "Claim CL-02AD627D resolved — item returned to passenger",
+        "created_at": "2026-06-26 15:21:49"
+    },
+    {
+        "id": 385,
+        "found_item_id": null,
+        "claim_id": 49,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-B320A47C filed by passenger",
+        "created_at": "2026-06-20 04:21:49"
+    },
+    {
+        "id": 386,
+        "found_item_id": null,
+        "claim_id": 49,
+        "user_id": 4,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-20 08:21:49"
+    },
+    {
+        "id": 387,
+        "found_item_id": 92,
+        "claim_id": 49,
+        "user_id": 4,
+        "action": "claim_matched",
+        "details": "Claim CL-B320A47C matched to item FI-4667EA92",
+        "created_at": "2026-06-20 16:21:49"
+    },
+    {
+        "id": 388,
+        "found_item_id": 92,
+        "claim_id": 49,
+        "user_id": 4,
+        "action": "claim_resolved",
+        "details": "Claim CL-B320A47C resolved — item returned to passenger",
+        "created_at": "2026-06-21 14:21:49"
+    },
+    {
+        "id": 389,
+        "found_item_id": null,
+        "claim_id": 50,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-56FC48A1 filed by passenger",
+        "created_at": "2026-06-16 07:21:49"
+    },
+    {
+        "id": 390,
+        "found_item_id": null,
+        "claim_id": 50,
+        "user_id": 3,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-16 11:21:49"
+    },
+    {
+        "id": 391,
+        "found_item_id": null,
+        "claim_id": 50,
+        "user_id": 3,
+        "action": "claim_rejected",
+        "details": "No matching item found in storage",
+        "created_at": "2026-06-17 07:21:49"
+    },
+    {
+        "id": 392,
+        "found_item_id": null,
+        "claim_id": 51,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-C0F42E22 filed by passenger",
+        "created_at": "2026-06-21 07:21:49"
+    },
+    {
+        "id": 393,
+        "found_item_id": null,
+        "claim_id": 51,
+        "user_id": 3,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-21 11:21:49"
+    },
+    {
+        "id": 394,
+        "found_item_id": null,
+        "claim_id": 51,
+        "user_id": 3,
+        "action": "claim_rejected",
+        "details": "No matching item found in storage",
+        "created_at": "2026-06-22 07:21:49"
+    },
+    {
+        "id": 395,
+        "found_item_id": null,
+        "claim_id": 52,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-A62321C3 filed by passenger",
+        "created_at": "2026-07-01 18:21:49"
+    },
+    {
+        "id": 396,
+        "found_item_id": null,
+        "claim_id": 52,
+        "user_id": 4,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-07-01 22:21:49"
+    },
+    {
+        "id": 397,
+        "found_item_id": null,
+        "claim_id": 52,
+        "user_id": 4,
+        "action": "claim_rejected",
+        "details": "No matching item found in storage",
+        "created_at": "2026-07-02 18:21:49"
+    },
+    {
+        "id": 398,
+        "found_item_id": null,
+        "claim_id": 53,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-93DEBAD4 filed by passenger",
+        "created_at": "2026-06-17 15:21:49"
+    },
+    {
+        "id": 399,
+        "found_item_id": null,
+        "claim_id": 53,
+        "user_id": 4,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-17 19:21:49"
+    },
+    {
+        "id": 400,
+        "found_item_id": null,
+        "claim_id": 53,
+        "user_id": 4,
+        "action": "claim_rejected",
+        "details": "No matching item found in storage",
+        "created_at": "2026-06-18 15:21:49"
+    },
+    {
+        "id": 401,
+        "found_item_id": null,
+        "claim_id": 54,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-021E13C1 filed by passenger",
+        "created_at": "2026-06-27 16:21:49"
+    },
+    {
+        "id": 402,
+        "found_item_id": null,
+        "claim_id": 54,
+        "user_id": 4,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-06-27 20:21:49"
+    },
+    {
+        "id": 403,
+        "found_item_id": null,
+        "claim_id": 54,
+        "user_id": 4,
+        "action": "claim_rejected",
+        "details": "No matching item found in storage",
+        "created_at": "2026-06-28 16:21:49"
+    },
+    {
+        "id": 404,
+        "found_item_id": null,
+        "claim_id": 55,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-ED164435 filed by passenger",
+        "created_at": "2026-06-30 21:21:49"
+    },
+    {
+        "id": 405,
+        "found_item_id": null,
+        "claim_id": 55,
+        "user_id": 3,
+        "action": "claim_status_changed",
+        "details": "Status changed from submitted to under-review",
+        "created_at": "2026-07-01 01:21:49"
+    },
+    {
+        "id": 406,
+        "found_item_id": null,
+        "claim_id": 55,
+        "user_id": 3,
+        "action": "claim_rejected",
+        "details": "No matching item found in storage",
+        "created_at": "2026-07-01 21:21:49"
+    },
+    {
+        "id": 407,
+        "found_item_id": null,
+        "claim_id": 56,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-418B891E filed by passenger",
+        "created_at": "2026-06-21 16:21:49"
+    },
+    {
+        "id": 408,
+        "found_item_id": null,
+        "claim_id": 56,
+        "user_id": null,
+        "action": "claim_withdrawn",
+        "details": "Status changed from submitted to withdrawn",
+        "created_at": "2026-06-22 02:21:49"
+    },
+    {
+        "id": 409,
+        "found_item_id": null,
+        "claim_id": 57,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-1390230B filed by passenger",
+        "created_at": "2026-06-26 03:21:49"
+    },
+    {
+        "id": 410,
+        "found_item_id": null,
+        "claim_id": 57,
+        "user_id": null,
+        "action": "claim_withdrawn",
+        "details": "Status changed from submitted to withdrawn",
+        "created_at": "2026-06-26 13:21:49"
+    },
+    {
+        "id": 411,
+        "found_item_id": null,
+        "claim_id": 58,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-94EC417C filed by passenger",
+        "created_at": "2026-06-15 05:21:49"
+    },
+    {
+        "id": 412,
+        "found_item_id": null,
+        "claim_id": 58,
+        "user_id": null,
+        "action": "claim_withdrawn",
+        "details": "Status changed from submitted to withdrawn",
+        "created_at": "2026-06-15 15:21:49"
+    },
+    {
+        "id": 413,
+        "found_item_id": null,
+        "claim_id": 59,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-8D1B4C5F filed by passenger",
+        "created_at": "2026-06-12 02:21:49"
+    },
+    {
+        "id": 414,
+        "found_item_id": null,
+        "claim_id": 59,
+        "user_id": null,
+        "action": "claim_withdrawn",
+        "details": "Status changed from submitted to withdrawn",
+        "created_at": "2026-06-12 12:21:49"
+    },
+    {
+        "id": 415,
+        "found_item_id": null,
+        "claim_id": 60,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-4F9E9042 filed by passenger",
+        "created_at": "2026-07-04 12:21:49"
+    },
+    {
+        "id": 416,
+        "found_item_id": null,
+        "claim_id": 61,
+        "user_id": null,
+        "action": "claim_filed",
+        "details": "Claim CL-960C5E4E filed by passenger",
+        "created_at": "2026-07-04 16:21:49"
+    }
+]
