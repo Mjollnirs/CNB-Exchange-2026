@@ -1,0 +1,26 @@
+meta {
+  name: auth-messages
+  type: http
+  seq: 13
+}
+
+post {
+  url: {{baseUrl}}/login
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  { "email": "nobody@reclaim-pvg.cn", "password": "wrong" }
+}
+
+tests {
+  test("A1.8: Auth error responses use the exact JSON messages specified", function() {
+    expect(res.status).to.equal(401);
+    expect(res.body.message).to.equal("Invalid credentials");
+  });
+}

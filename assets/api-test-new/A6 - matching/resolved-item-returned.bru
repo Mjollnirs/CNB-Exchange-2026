@@ -1,0 +1,22 @@
+meta {
+  name: resolved-item-returned
+  type: http
+  seq: 10
+}
+
+get {
+  url: {{baseUrl}}/items/93
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+tests {
+  test("A6.8: POST /claims/{id}/resolve: matched claim → resolved with resolved_at auto-set; item → returned (item returned)", function() {
+    expect(res.status).to.equal(200);
+    expect(res.body.data.status).to.equal("returned");
+  });
+}

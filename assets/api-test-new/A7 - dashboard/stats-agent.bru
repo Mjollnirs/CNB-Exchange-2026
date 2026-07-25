@@ -1,0 +1,25 @@
+meta {
+  name: stats-agent
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/dashboard/stats
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{agentToken}}
+}
+
+tests {
+  test("A7.4: Agent dashboard stats are scoped to their assigned terminals (different totals than admin)", function() {
+    expect(res.status).to.equal(200);
+    const d = res.body.data;
+    expect(d.total_items).to.be.a("number").and.to.be.below(124);
+    expect(d.total_claims).to.be.a("number").and.to.be.below(61);
+    expect(d.total_items).to.be.greaterThan(0);
+  });
+}

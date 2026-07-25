@@ -1,0 +1,36 @@
+meta {
+  name: scoping-create-403
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{baseUrl}}/items
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{agentToken}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "terminal_id": 2,
+    "category": "keys",
+    "description": "bunch of keys",
+    "found_on": "2026-07-01",
+    "found_location": "Gate E5"
+  }
+}
+
+tests {
+  test("A3.7: Agents can register items only at their assigned terminals (403 otherwise); admins at any terminal", function() {
+    expect(res.status).to.equal(403);
+    expect(res.body.message).to.equal("Forbidden");
+  });
+}

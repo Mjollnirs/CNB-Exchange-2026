@@ -1,0 +1,29 @@
+meta {
+  name: status-not-allowed
+  type: http
+  seq: 7
+}
+
+patch {
+  url: {{baseUrl}}/claims/19/status
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  { "status": "resolved" }
+}
+
+tests {
+  test("A5.5: PATCH /claims/{id}/status rejects statuses owned by dedicated endpoints and invalid transitions (422) (dedicated statuses)", function() {
+    expect(res.status).to.equal(422);
+  });
+}

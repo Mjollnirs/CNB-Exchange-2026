@@ -1,0 +1,44 @@
+meta {
+  name: stats-admin
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/dashboard/stats
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+tests {
+  test("A7.1: GET /dashboard/stats returns correct total_items, items_in_storage, total_claims, open_claims, today_items, today_claims", function() {
+    expect(res.status).to.equal(200);
+    const d = res.body.data;
+    expect(d.total_items).to.equal(124);
+    expect(d.total_claims).to.equal(61);
+    expect(d.items_in_storage).to.equal(67);
+    expect(d.open_claims).to.equal(19);
+    expect(d.today_items).to.equal(8);
+    expect(d.today_claims).to.equal(2);
+  });
+
+  test("A7.2: items_by_category and claims_by_status return correct counts with all keys present", function() {
+    expect(Object.keys(res.body.data.items_by_category)).to.have.lengthOf(7);
+    expect(res.body.data.claims_by_status).to.eql({
+      "submitted": 8, "under-review": 11, "matched": 6,
+      "resolved": 21, "rejected": 9, "withdrawn": 6
+    });
+  });
+
+  test("A7.3: recent_claims contains the 5 most recent claims, newest first", function() {
+    const recent = res.body.data.recent_claims;
+    expect(recent).to.have.lengthOf(5);
+    expect(recent[0].passenger_name).to.equal("Li Wei");
+    expect(recent[0]).to.have.property("reference_code");
+    expect(recent[0]).to.have.property("status");
+  });
+}

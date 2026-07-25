@@ -1,0 +1,37 @@
+meta {
+  name: register-invalid
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/passenger/register
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "first_name": "Dup",
+    "last_name": "Licate",
+    "email": "passenger1@email.com",
+    "postcode": "200000",
+    "country": "China",
+    "password": "short"
+  }
+}
+
+tests {
+  test("A8.2: Register validates unique email, password min 8 chars, and required address fields (422 with errors)", function() {
+    expect(res.status).to.equal(422);
+    expect(res.body.message).to.equal("Validation failed");
+    expect(res.body.errors).to.have.property("email");
+    expect(res.body.errors).to.have.property("password");
+    expect(res.body.errors).to.have.property("address_1");
+    expect(res.body.errors).to.have.property("city");
+  });
+}

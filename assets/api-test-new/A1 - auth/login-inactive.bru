@@ -1,0 +1,26 @@
+meta {
+  name: login-inactive
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/login
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  { "email": "agent3@reclaim-pvg.cn", "password": "agent123" }
+}
+
+tests {
+  test("A1.3: POST /login rejects deactivated staff accounts with 401", function() {
+    expect(res.status).to.equal(401);
+    expect(res.body.message).to.equal("Invalid credentials");
+  });
+}

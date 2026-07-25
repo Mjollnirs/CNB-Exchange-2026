@@ -1,0 +1,21 @@
+meta {
+  name: withdraw-invalid
+  type: http
+  seq: 14
+}
+
+post {
+  url: {{baseUrl}}/passenger/claims/4/withdraw
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{passengerToken}}
+}
+
+tests {
+  test("A8.7: POST /passenger/claims/{id}/withdraw: own open claim → withdrawn (200); non-open claims 422 (non-open 422)", function() {
+    expect(res.status).to.equal(422);
+  });
+}

@@ -1,0 +1,33 @@
+meta {
+  name: create-validation
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{baseUrl}}/items
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  { "terminal_id": 1, "category": "not-a-category", "found_on": "2030-01-01" }
+}
+
+tests {
+  test("A3.6: POST /items validates required fields, category enum, and found_on not in the future (422 with errors object)", function() {
+    expect(res.status).to.equal(422);
+    expect(res.body.message).to.equal("Validation failed");
+    expect(res.body.errors).to.have.property("category");
+    expect(res.body.errors).to.have.property("description");
+    expect(res.body.errors).to.have.property("found_on");
+  });
+}

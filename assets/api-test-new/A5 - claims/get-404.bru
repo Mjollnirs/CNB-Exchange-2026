@@ -1,0 +1,22 @@
+meta {
+  name: get-404
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/claims/9999
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+tests {
+  test("A5.3: GET /claims/{id} returns the full claim, 404 for unknown id; matched claims expose matched_item (id, reference_code, storage_shelf) (404)", function() {
+    expect(res.status).to.equal(404);
+    expect(res.body.message).to.equal("Resource not found");
+  });
+}

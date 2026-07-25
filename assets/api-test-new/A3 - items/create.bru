@@ -1,0 +1,47 @@
+meta {
+  name: create
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/items
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "terminal_id": 1,
+    "category": "electronics",
+    "brand": "Sony",
+    "colour": "black",
+    "description": "portable bluetooth speaker in mesh pouch",
+    "found_on": "2026-07-01",
+    "found_location": "Lounge 77"
+  }
+}
+
+script:post-response {
+  if (res.status === 201) {
+    bru.setEnvVar("createdItemId", res.body.data.id);
+  }
+}
+
+tests {
+  test("A3.5: POST /items returns 201 with auto-generated FI-XXXXXXXX reference code and status registered", function() {
+    expect(res.status).to.equal(201);
+    expect(res.body.data.reference_code).to.match(/^FI-[A-Z0-9]{8}$/);
+    expect(res.body.data.status).to.equal("registered");
+    expect(res.body.data.storage_shelf).to.equal(null);
+    expect(res.body.data.terminal.id).to.equal(1);
+  });
+}

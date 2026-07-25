@@ -1,0 +1,22 @@
+meta {
+  name: cors
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/claims/track/CL-NOTFOUND
+  body: none
+  auth: none
+}
+
+headers {
+  Origin: http://example.com
+}
+
+tests {
+  test("A9.2: Consistent JSON response format ({\"data\": ...} success, {\"message\": ...} errors) and CORS headers enabled", function() {
+    expect(res.headers["access-control-allow-origin"]).to.equal("*");
+    expect(res.body).to.have.property("message");
+  });
+}

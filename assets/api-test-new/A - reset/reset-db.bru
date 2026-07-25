@@ -1,0 +1,48 @@
+meta {
+  name: reset-db
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/claims/track/RESET-STEP
+  body: none
+  auth: none
+}
+
+script:pre-request {
+  const mysql = require("mysql2/promise");
+  const fs = require("fs");
+  const path = require("path");
+
+  let base;
+  try { base = bru.cwd(); } catch (e) { base = process.cwd(); }
+  const dump = fs.readFileSync(path.resolve(base, bru.getEnvVar("dumpPath")), "utf8");
+
+  try {
+    const conn = await mysql.createConnection({
+      host: bru.getEnvVar("dbHost") || "127.0.0.1",
+      port: Number(bru.getEnvVar("dbPort") || 3306),
+      user: bru.getEnvVar("dbUser"),
+      password: bru.getEnvVar("dbPass") || "",
+      database: bru.getEnvVar("dbName"),
+      multipleStatements: true,
+      charset: "utf8mb4",
+    });
+    try {
+      await conn.query(dump);
+      const [rows] = await conn.query("SELECT COUNT(*) AS c FROM claims");
+      bru.setVar("resetResult", String(rows[0].c));
+    } finally {
+      await conn.end();
+    }
+  } catch (e) {
+    bru.setVar("resetResult", "IMPORT FAILED: " + e.message.split("\n")[0]);
+  }
+}
+
+tests {
+  test("A: database restored from the provided dump", function() {
+    expect(bru.getVar("resetResult")).to.equal("61");
+  });
+}

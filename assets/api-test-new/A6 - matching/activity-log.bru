@@ -1,0 +1,29 @@
+meta {
+  name: activity-log
+  type: http
+  seq: 12
+}
+
+get {
+  url: {{baseUrl}}/dashboard/activity
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+tests {
+  test("A6.10: Match, release and resolve write activity logs referencing the claim and item", function() {
+    expect(res.status).to.equal(200);
+    const matched = res.body.data.find(e => e.action === "claim_matched" && e.claim && e.claim.reference_code === "CL-F8DA73A7");
+    expect(matched, "no claim_matched log for CL-F8DA73A7").to.not.equal(undefined);
+    expect(matched.item, "claim_matched log does not reference the item").to.not.equal(null);
+    const released = res.body.data.find(e => e.action === "claim_status_changed" && e.claim && e.claim.reference_code === "CL-F8DA73A7");
+    expect(released, "no status-change log for the released claim").to.not.equal(undefined);
+    const resolved = res.body.data.find(e => e.action === "claim_resolved" && e.claim && e.claim.reference_code === "CL-4EAA9FE6");
+    expect(resolved, "no claim_resolved log for CL-4EAA9FE6").to.not.equal(undefined);
+    expect(resolved.item, "claim_resolved log does not reference the item").to.not.equal(null);
+  });
+}

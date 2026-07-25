@@ -1,0 +1,24 @@
+meta {
+  name: scoping-agent
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{baseUrl}}/items
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{agentToken}}
+}
+
+tests {
+  test("A3.9: Agents see only items at their assigned terminals (list and detail scoping)", function() {
+    expect(res.status).to.equal(200);
+    res.body.data.forEach(item => {
+      expect([1, 3]).to.include(item.terminal.id);
+    });
+  });
+}

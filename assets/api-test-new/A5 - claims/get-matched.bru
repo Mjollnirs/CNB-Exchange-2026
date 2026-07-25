@@ -1,0 +1,23 @@
+meta {
+  name: get-matched
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/claims/3
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+tests {
+  test("A5.3: GET /claims/{id} returns the full claim, 404 for unknown id; matched claims expose matched_item (id, reference_code, storage_shelf) (matched claim)", function() {
+    expect(res.status).to.equal(200);
+    expect(res.body.data.status).to.equal("matched");
+    expect(res.body.data.matched_item).to.have.all.keys("id", "reference_code", "storage_shelf");
+  });
+}

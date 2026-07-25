@@ -1,0 +1,34 @@
+meta {
+  name: retention-blocked
+  type: http
+  seq: 3
+}
+
+patch {
+  url: {{baseUrl}}/items/10/status
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  { "status": "disposed" }
+}
+
+tests {
+  test("A4.2: in-storage → donated / disposed allowed only when found_on is more than 60 days ago (blocked inside retention)", function() {
+    expect(res.status).to.equal(422);
+  });
+
+  test("A4.3: Retention violation returns 422 with message \"Item is still within the retention period\"", function() {
+    expect(res.status).to.equal(422);
+    expect(res.body.message).to.equal("Item is still within the retention period");
+  });
+}

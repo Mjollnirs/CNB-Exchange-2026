@@ -1,0 +1,47 @@
+meta {
+  name: register
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/passenger/register
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+script:pre-request {
+  bru.setEnvVar("regEmail", "reg." + Date.now() + "@email.com");
+}
+
+body:json {
+  {
+    "first_name": "Chen",
+    "last_name": "Jing",
+    "email": "{{regEmail}}",
+    "phone": "+8613912345678",
+    "address_1": "88 Century Avenue",
+    "address_2": null,
+    "city": "Shanghai",
+    "postcode": "200120",
+    "country": "China",
+    "password": "mypassword1"
+  }
+}
+
+tests {
+  test("A8.1: POST /passenger/register creates the account and returns 201 with token and profile (immediate login)", function() {
+    expect(res.status).to.equal(201);
+    expect(res.body.data.token).to.be.a("string");
+    const p = res.body.data.passenger;
+    expect(p.first_name).to.equal("Chen");
+    expect(p.email).to.equal(bru.getEnvVar("regEmail"));
+    expect(p.country).to.equal("China");
+    expect(p).to.not.have.property("password");
+    expect(p).to.not.have.property("api_token");
+  });
+}

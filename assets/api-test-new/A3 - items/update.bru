@@ -1,0 +1,31 @@
+meta {
+  name: update
+  type: http
+  seq: 10
+}
+
+put {
+  url: {{baseUrl}}/items/{{createdItemId}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  { "brand": "Sony", "colour": "navy", "description": "portable bluetooth speaker, navy mesh pouch" }
+}
+
+tests {
+  test("A3.8: PUT /items/{id} updates details (200); status and reference_code cannot be changed via this endpoint", function() {
+    expect(res.status).to.equal(200);
+    expect(res.body.data.colour).to.equal("navy");
+    expect(res.body.data.status).to.equal("registered");
+  });
+}

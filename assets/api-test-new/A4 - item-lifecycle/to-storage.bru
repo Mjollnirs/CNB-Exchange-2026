@@ -1,0 +1,37 @@
+meta {
+  name: to-storage
+  type: http
+  seq: 2
+}
+
+patch {
+  url: {{baseUrl}}/items/116/status
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  { "status": "in-storage", "storage_shelf": "T1-R9-S99" }
+}
+
+tests {
+  test("A4.1: registered → in-storage requires a storage shelf — 422 without one; shelf may be sent in the same request (shelf accepted in the same request)", function() {
+    expect(res.status).to.equal(200);
+    expect(res.body.data.status).to.equal("in-storage");
+    expect(res.body.data.storage_shelf).to.equal("T1-R9-S99");
+  });
+
+  test("A4.6: Successful status changes return 200 with the updated item", function() {
+    expect(res.status).to.equal(200);
+    expect(res.body.data).to.have.property("id");
+    expect(res.body.data.status).to.equal("in-storage");
+  });
+}

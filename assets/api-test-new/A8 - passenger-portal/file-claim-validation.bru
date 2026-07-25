@@ -1,0 +1,32 @@
+meta {
+  name: file-claim-validation
+  type: http
+  seq: 12
+}
+
+post {
+  url: {{baseUrl}}/passenger/claims
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{passengerToken}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  { "category": "electronics", "lost_on": "2030-01-01" }
+}
+
+tests {
+  test("A8.6: POST /passenger/claims returns 201 with auto CL-XXXXXXXX code and status submitted; validation 422; activity log written with no user (validation 422)", function() {
+    expect(res.status).to.equal(422);
+    expect(res.body.errors).to.have.property("terminal_id");
+    expect(res.body.errors).to.have.property("description");
+    expect(res.body.errors).to.have.property("lost_on");
+  });
+}

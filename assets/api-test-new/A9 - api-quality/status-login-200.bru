@@ -1,0 +1,31 @@
+meta {
+  name: status-login-200
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/login
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  { "email": "admin1@reclaim-pvg.cn", "password": "admin123" }
+}
+
+script:post-response {
+  if (res.status === 200) {
+    bru.setEnvVar("adminToken", res.body.data.token);
+  }
+}
+
+tests {
+  test("A9.3: Exact HTTP status codes as specified throughout (200, 201, 401, 403, 404, 422) — framework defaults overridden where they differ (login is 200, not the POST default 201)", function() {
+    expect(res.status).to.equal(200);
+  });
+}

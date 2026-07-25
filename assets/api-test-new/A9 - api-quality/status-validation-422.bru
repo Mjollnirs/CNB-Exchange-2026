@@ -1,0 +1,29 @@
+meta {
+  name: status-validation-422
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/items
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {}
+}
+
+tests {
+  test("A9.3: Exact HTTP status codes as specified throughout (200, 201, 401, 403, 404, 422) — framework defaults overridden where they differ (validation is 422, not 400)", function() {
+    expect(res.status).to.equal(422);
+  });
+}

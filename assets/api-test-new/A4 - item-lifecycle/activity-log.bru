@@ -1,0 +1,24 @@
+meta {
+  name: activity-log
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrl}}/dashboard/activity
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+tests {
+  test("A4.7: Every item status change writes an activity log", function() {
+    expect(res.status).to.equal(200);
+    const changes = res.body.data.filter(e => e.action === "item_status_changed" && e.item);
+    expect(changes.find(e => e.item.id === 116), "no log for the item moved to in-storage").to.not.equal(undefined);
+    expect(changes.find(e => e.item.id === 1), "no log for the disposed item").to.not.equal(undefined);
+  });
+}

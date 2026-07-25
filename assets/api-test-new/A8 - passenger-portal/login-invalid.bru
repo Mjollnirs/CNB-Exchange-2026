@@ -1,0 +1,26 @@
+meta {
+  name: login-invalid
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/passenger/login
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  { "email": "passenger1@email.com", "password": "wrong" }
+}
+
+tests {
+  test("A8.3: POST /passenger/login returns 200 with token and passenger object; 401 for invalid credentials or deactivated accounts (invalid 401)", function() {
+    expect(res.status).to.equal(401);
+    expect(res.body.message).to.equal("Invalid credentials");
+  });
+}

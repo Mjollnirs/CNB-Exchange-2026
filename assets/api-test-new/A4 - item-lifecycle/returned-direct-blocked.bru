@@ -1,0 +1,29 @@
+meta {
+  name: returned-direct-blocked
+  type: http
+  seq: 6
+}
+
+patch {
+  url: {{baseUrl}}/items/7/status
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  { "status": "returned" }
+}
+
+tests {
+  test("A4.4: matched and returned cannot be set directly via PATCH (422 — managed by the claim workflow) (returned)", function() {
+    expect(res.status).to.equal(422);
+  });
+}

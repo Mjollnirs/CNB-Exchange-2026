@@ -1,0 +1,22 @@
+meta {
+  name: item-back-in-storage
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrl}}/items/{{matchItemId}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+tests {
+  test("A6.7: Releasing a matched claim (PATCH → under-review) clears matched_item and returns the item to in-storage (item back in storage)", function() {
+    expect(res.status).to.equal(200);
+    expect(res.body.data.status).to.equal("in-storage");
+  });
+}

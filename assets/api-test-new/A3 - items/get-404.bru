@@ -1,0 +1,22 @@
+meta {
+  name: get-404
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/items/9999
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+tests {
+  test("A3.4: GET /items/{id} returns the full item; 404 for unknown id (404)", function() {
+    expect(res.status).to.equal(404);
+    expect(res.body.message).to.equal("Resource not found");
+  });
+}

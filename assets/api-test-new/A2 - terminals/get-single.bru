@@ -1,0 +1,25 @@
+meta {
+  name: get-single
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/terminals/2
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+tests {
+  test("A2.4: GET /terminals/{id} returns the terminal with counts; 404 for unknown id (200 with counts)", function() {
+    expect(res.status).to.equal(200);
+    expect(res.body.data.code).to.equal("PVG-T2");
+    expect(res.body.data.name).to.equal("Terminal 2");
+    expect(res.body.data.items_in_storage_count).to.equal(17);
+    expect(res.body.data.open_claims_count).to.equal(4);
+  });
+}

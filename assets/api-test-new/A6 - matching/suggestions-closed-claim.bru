@@ -1,0 +1,21 @@
+meta {
+  name: suggestions-closed-claim
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/claims/36/matches
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+tests {
+  test("A6.5: Suggestions available only for submitted / under-review claims (422 otherwise)", function() {
+    expect(res.status).to.equal(422);
+  });
+}

@@ -1,0 +1,29 @@
+meta {
+  name: match-requires-review
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/claims/16/match
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{adminToken}}
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  { "item_id": {{matchItemId}} }
+}
+
+tests {
+  test("A6.6: POST /claims/{id}/match links claim and item (both matched); requires claim under-review and item in-storage (422 otherwise) (claim not under review)", function() {
+    expect(res.status).to.equal(422);
+  });
+}

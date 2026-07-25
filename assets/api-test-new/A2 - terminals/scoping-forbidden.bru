@@ -1,0 +1,22 @@
+meta {
+  name: scoping-forbidden
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{baseUrl}}/terminals/2
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{agentToken}}
+}
+
+tests {
+  test("A2.6: Agents see only their assigned terminals in the list and get 403 on unassigned terminal detail (403 on detail)", function() {
+    expect(res.status).to.equal(403);
+    expect(res.body.message).to.equal("Forbidden");
+  });
+}
