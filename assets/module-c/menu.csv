@@ -1,0 +1,21 @@
+name,category,description,price,stock,image
+Eight-Treasure Duck,Signature,"Duck filled with glutinous rice, chestnuts, lotus seeds, mushrooms, and cured meat.",128,0,eight-treasure-duck.png
+Crystal Shrimp,River Delicacies,"Tender river shrimp stir-fried until translucent with a clean, delicate finish.",78,0,crystal-shrimp.png
+Braised Pork Belly,Signature,"Pork belly slowly braised in soy sauce, rock sugar, and Shaoxing wine.",68.88,6,braised-pork-belly.png
+Smoked Fish,Cold Dishes,Crisp fried fish slices coated with a sweet aromatic soy glaze.,48,6,smoked-fish.png
+Sweet and Sour Mandarin Fish,Signature,Whole mandarin fish fried crisp and finished with a bright sweet-and-sour sauce.,118.5,96,sweet-sour-mandarin-fish.png
+Lion's Head Meatballs,Pork,Large tender pork meatballs braised with napa cabbage in a rich stock.,58,112,lions-head-meatballs.png
+Scallion Oil Noodles,Noodles,Springy noodles tossed with fragrant scallion oil and soy sauce.,28,125,scallion-oil-noodles.png
+Xiaolongbao,Dim Sum,Steamed soup dumplings filled with pork and savory broth.,36,138,xiaolongbao.png
+Shengjian Buns,Dim Sum,"Pan-fried pork buns with crisp bases, sesame, and scallions.",32,104,shengjian-buns.png
+Crab Roe Tofu,Seafood,Silken tofu simmered in a savory crab roe sauce.,62,88,crab-roe-tofu.png
+Drunken Chicken,Cold Dishes,Poached chicken chilled in Shaoxing wine with goji berries.,46,92,drunken-chicken.png
+Soy-Braised Gluten,Cold Dishes,"Wheat gluten braised with mushrooms, peanuts, and black fungus.",26,115,soy-braised-gluten.png
+Vegetarian Goose,Cold Dishes,Layered tofu skin rolls seasoned and braised until richly savory.,30,130,vegetarian-goose.png
+Yellow Croaker with Snow Vegetable,Seafood,Yellow croaker cooked with preserved snow vegetable in a light broth.,76,84,yellow-croaker-snow-vegetable.png
+Stir-Fried River Shrimp,River Delicacies,Fresh river shrimp quickly stir-fried with spring onion and ginger.,82,101,stir-fried-river-shrimp.png
+Red Bean Rice Cake,Desserts,Soft glutinous rice cake layered with smooth sweet red bean paste.,32,120,red-bean-rice-cake.png
+Osmanthus Lotus Root,Desserts,Lotus root stuffed with glutinous rice and glazed with osmanthus syrup.,34,94,osmanthus-lotus-root.png
+Shanghai Wonton Soup,Soup,Pork and shepherd's purse wontons served in a clear savory broth.,30,140,shanghai-wonton-soup.png
+Fried Eel Noodles,Noodles,Noodles topped with tender eel strips in a rich soy sauce.,52,86,fried-eel-noodles.png
+Malan Herb with Tofu,Vegetarian,Finely chopped malan herb mixed with pressed tofu and sesame oil.,24.1,110,malan-herb-tofu.png
